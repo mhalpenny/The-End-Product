@@ -1,3 +1,4 @@
+import { generateUploadURL } from 's3.js'
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
 
 var app = express();
 
@@ -37,5 +39,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get('/s3Url', async (req, res) => {
+  const url = await generateUploadURL()
+  res.send({url})
+})
 
 module.exports = app;
