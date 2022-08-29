@@ -6,8 +6,8 @@ const randomBytes = promisify(crypto.randomBytes)
 
 dotenv.config()
 
-const region = "us-west-2"
-const bucketName = "direct-upload-s3-bucket-thing"
+const region = "us-east-1"
+const bucketName = "the-end-product"
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
 
@@ -25,7 +25,7 @@ export async function generateUploadURL() {
   const params = ({
     Bucket: bucketName,
     Key: imageName,
-    Expires: 60
+    Expires: 120
   })
   
   const uploadURL = await s3.getSignedUrlPromise('putObject', params)

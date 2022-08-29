@@ -10,11 +10,16 @@
     "node": "14.x"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
+    "aws-sdk": "^2.1198.0",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "http-errors": "^1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "util": "^0.12.4"
   }
 }
