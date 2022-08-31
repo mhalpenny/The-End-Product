@@ -1,0 +1,12 @@
+/* part of temporary front end */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+  }
+  
+  form > * {
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
