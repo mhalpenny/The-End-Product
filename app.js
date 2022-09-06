@@ -16,6 +16,6 @@ app.get('/s3Url', async (req, res) => {
 })
 
 //log listening info
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
 })
