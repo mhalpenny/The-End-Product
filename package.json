@@ -1,28 +1,23 @@
 {
-  "name": "mb-app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "end-product",
+  "version": "1.0.0",
+  "description": "end-product backend",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node ./bin/www",
-    "start-dev": "nodemon ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "15.0.1"
-  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1198.0",
+    "aws": "^0.0.3-2",
+    "aws-sdk": "^2.1209.0",
     "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
-    "debug": "~2.6.9",
-    "dotenv": "^16.0.1",
-    "express": "~4.16.1",
-    "http-errors": "^1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.19",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "util": "^0.12.4",
-    "wget": "^0.0.1"
+    "util": "^0.12.4"
   }
 }

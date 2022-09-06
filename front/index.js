@@ -1,5 +1,4 @@
 
-//part of temporary front end
 const imageForm = document.querySelector("#imageForm")
 const imageInput = document.querySelector("#imageInput")
 
