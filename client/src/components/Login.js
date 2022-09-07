@@ -9,14 +9,16 @@ function Login(props) {
 
   return (
     <div className="Login">
-      loginnn
+      <div className="welcomeContainer">
+      <h1 className="welcome">WELCOME TO <br/><br/>THE END PRODUCT</h1>
+      </div>
       <br />
       <input type="text" value={name} onChange={handleFirstNameChange} />
       <br />
       <button
         onClick={() => { props.setFullestName(name); }}
       >
-        submit name
+        Start
       </button>
     </div>
   );
