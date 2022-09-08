@@ -17,7 +17,7 @@
 
 .welcomeContainer{
     width: 100%;
-    padding-left: 27%;
+    padding-left: 24%;
     padding-right: 20%;
 }
 
@@ -42,14 +42,14 @@
     4px 4px 0px 2px black;
 }
 
-.endForm{
+#userField{
     position: absolute;
-    margin-top: 400px;
+    margin-top: 385px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
     background-color: white;
-    width: 60%;
+    width: 40%;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10%;
@@ -88,14 +88,31 @@
     display: none;
 }
 
-/* .loginBtn{
-    display: none;
+.dashImgContainer{
+    width:100%;
 }
 
-.quizBtn{
-    display: none;
+.dashContainer{
+    width: 100%;
+    height: 500px;
 }
 
-.fileBtn{
-    display: none;
-} */
+.dashContainer p{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+}
+
+.helloContainer{
+    width: 100%;
+}
+
+.hello{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+}

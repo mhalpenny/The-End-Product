@@ -7,7 +7,7 @@ import Quiz from './components/Quiz';
 import Stylesheet from './components/Stylesheet';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
-import setBtn from './assets/css/js/btn';
+import setBtn from './assets/js/btn';
 
 // import './App.css';
 
