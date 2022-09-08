@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import setBtn from '../js/btn';
+import setBtn from '../assets/css/js/btn';
 
 function Login(props) {
   const [name, setName] = useState('');
@@ -11,14 +11,12 @@ function Login(props) {
   return (
     <div className="Login">
       <div className="welcomeContainer">
-      <h1 className="welcome">WELCOME TO <br/><br/>THE END PRODUCT</h1>
+      <h1 className="welcome">Choose your username</h1>
       </div>
       <br />
-      <input type="text" id="userField" value={name} onChange={handleFirstNameChange} required/>
+      <input type="text" id="userField" className='hidden' value={name} onChange={handleFirstNameChange} required/>
       <br />
-      <button
-        onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}
-      >
+      <button className = 'userButton hidden' id='loginBtn'onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}>
         Start
       </button>
     </div>
