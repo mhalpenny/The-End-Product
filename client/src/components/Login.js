@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import setBtn from '../js/btn';
 
 function Login(props) {
   const [name, setName] = useState('');
@@ -13,10 +14,10 @@ function Login(props) {
       <h1 className="welcome">WELCOME TO <br/><br/>THE END PRODUCT</h1>
       </div>
       <br />
-      <input type="text" value={name} onChange={handleFirstNameChange} />
+      <input type="text" id="userField" value={name} onChange={handleFirstNameChange} required/>
       <br />
       <button
-        onClick={() => { props.setFullestName(name); }}
+        onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}
       >
         Start
       </button>

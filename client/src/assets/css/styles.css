@@ -3,36 +3,99 @@
 }
 
 .welcome{
+    position: absolute;
+    margin-top: 50%;
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
-    line-height: 22px;
+    line-height: 30px;
     font-style: normal;
     display: flex;
     align-items: center;
 }
 
 .welcomeContainer{
-    width: 70%;
-    padding-left: 15%;
-    padding-right: 15%;
+    width: 100%;
+    padding-left: 27%;
+    padding-right: 20%;
 }
 
 .endButton{
+    position: absolute;
+    margin-top: 400px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
     background-color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 80px;
-    padding-right: 80px;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     box-shadow: 4px 4px white, 
     4px 4px 0px 2px black;
-    
 }
+
+.endForm{
+    position: absolute;
+    margin-top: 400px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.userButton{
+    position: absolute;
+    margin-top: 600px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 50%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+.hidden{
+    display: none;
+}
+
+/* .loginBtn{
+    display: none;
+}
+
+.quizBtn{
+    display: none;
+}
+
+.fileBtn{
+    display: none;
+} */
