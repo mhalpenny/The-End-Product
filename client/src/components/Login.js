@@ -16,7 +16,7 @@ function Login(props) {
       <br />
       <input type="text" id="userField" className='hidden' value={name} onChange={handleFirstNameChange} required/>
       <br />
-      <button className = 'userButton hidden' id='loginBtn'onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}>
+      <button className = 'userButton hidden' id='loginBtn' onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}>
         Start
       </button>
     </div>

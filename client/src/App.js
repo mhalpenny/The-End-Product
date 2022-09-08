@@ -21,11 +21,13 @@ function App() {
       <div>
         <Stylesheet primary={true}/>
         {/* <button className = 'userButton hidden' id='loginBtn' onClick={() => { setPage('login'); setBtn('quizBtn', 'loginBtn'); }}>Start</button> */}
-        <button className = 'endButton hidden' id='fileBtn' onClick={() => { setPage('dashboard'); }}>Upload media</button>
+        <button className = 'endButton hidden' id='fileBtn' onClick={() => { setPage('dashboard'); setBtn('mediaBtn', 'fileBtn');}}>Share</button>
         <button className = 'endButton hidden' id='submitBtn' onClick={() => { setPage('fileUpload'); }}>Submit quiz</button>
         {/* <button className = 'endButton' onClick={() => { setPage('priceList'); }}>price list</button> */}
-        <button className = 'endButton hidden' id='quizBtn' onClick={() => { setPage('dashboard'); setBtn('none', 'quizBtn');}}>Start Quiz</button>
+        <button className = 'endButton hidden' id='quizBtn' onClick={() => { setPage('dashboard'); setBtn('mediaBtn', 'quizBtn');}}>Start Quiz</button>
         <button className = 'endButton' id='homeBtn' onClick={() => { setPage('login'); setBtn('loginBtn', 'homeBtn');}}>Get started!</button>
+        <button className = 'dashButton hidden' id='mediaBtn' onClick={() => { setPage('fileUpload'); setBtn('fileBtn', 'mediaBtn');}}>Upload</button>
+        <button className = 'dashButton hidden' id='quizBtn' onClick={() => { setPage('quiz'); setBtn('none', 'quizBtn');}}>Quiz</button>
         {fullName}
         {/* <div className='mainContainer'>{mainContent}</div> */}
       </div>
@@ -34,8 +36,6 @@ function App() {
 
   const renderContent = () => {
     switch (page) {
-      case 'homepage':
-        return <Homepage />
       case 'dashboard':
         return <Dashboard />
       case 'login':
@@ -47,7 +47,8 @@ function App() {
       case 'quiz':
         return <Quiz />
       default:
-        return <Login />
+        return <Homepage />
+
     }
   }
 

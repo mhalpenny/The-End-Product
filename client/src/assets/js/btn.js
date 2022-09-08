@@ -5,6 +5,8 @@ function setBtn(future, current){
       checkUser();
 
       if(checkUser()){
+        var w = document.getElementById('nuQuizBtn');
+        w.classList.remove("hidden");
         var x = document.getElementById(future);
         x.classList.remove("hidden");
         var y = document.getElementById(current);
