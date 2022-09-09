@@ -7,6 +7,7 @@ import Quiz from './components/Quiz';
 import Stylesheet from './components/Stylesheet';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
+// import Header from './components/Header';
 import setBtn from './assets/js/btn';
 
 // import './App.css';
@@ -14,12 +15,15 @@ import setBtn from './assets/js/btn';
 function App() {
   const [page, setPage] = useState('homepage');
   const [fullName, setFullName] = useState('');
+  const [price, setPrice] = useState('');
+  // setFullName('none');
+  // setPrice(0.00);
   // let mainContent = {Stylesheet}
 
   const renderMenu = () => {
     return (
       <div>
-        <Stylesheet primary={true}/>
+        {/* <Header initialUser={fullName} initialPrice={price}/> */}
         {/* <button className = 'userButton hidden' id='loginBtn' onClick={() => { setPage('login'); setBtn('quizBtn', 'loginBtn'); }}>Start</button> */}
         <button className = 'endButton hidden' id='fileBtn' onClick={() => { setPage('dashboard'); setBtn('mediaBtn', 'fileBtn');}}>Share</button>
         <button className = 'endButton hidden' id='submitBtn' onClick={() => { setPage('fileUpload'); }}>Submit quiz</button>
@@ -29,7 +33,6 @@ function App() {
         <button className = 'dashButton hidden' id='mediaBtn' onClick={() => { setPage('fileUpload'); setBtn('fileBtn', 'mediaBtn');}}>Upload</button>
         <button className = 'dashButton hidden' id='quizBtn' onClick={() => { setPage('quiz'); setBtn('none', 'quizBtn');}}>Quiz</button>
         {fullName}
-        {/* <div className='mainContainer'>{mainContent}</div> */}
       </div>
     )
   }

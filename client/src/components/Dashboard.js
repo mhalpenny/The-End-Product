@@ -6,53 +6,53 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard">
-      <div className="helloContainer">
+      {/* <div className="helloContainer">
       <h1 className="hello">Hi! user</h1>
-      </div>
+      </div> */}
+      <br />
+      <br />
+      <br />
       <br />
       <div className="dashContainer" id='dashMedia'>
-        <p>Share a selfie! This text should be changeable, 
-as well as the photos. Won’t change during the perf.</p>
-        <img className="dashImgContainer" src='../assets/imgs/test.png' alt=''>
-        </img>
+        <p className='dashTitle'>Share a selfie!</p>
+        <button className="dashImgContainer" id='galleryImg'></button>
         <div>
         {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setBtn('fileBtn', 'mediaBtn');}}>Upload</button> */}
-        <span className='earnSpan'><p>You earn </p> <img></img> <p></p></span>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>
-      <span className='dashScroll'>Scrolling text</span>
+      <marquee className='dashScroll'>SCROLLING TEXT</marquee>
       <br/>
       <div className="dashContainer" id='dashVideo'>
-        <p>Share a video! This text should be changeable, 
-as well as the photos. Won’t change during the perf.</p>
-        <img className="dashImgContainer" src='../assets/imgs/test.png' alt=''></img>
+        <p className='dashTitle'>Share a video!</p>
+        <button className="dashImgContainer" id='camImg'></button>
         <div>
-            <p>You earn </p> <img></img> <p></p>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>
-      <span className='dashScroll'>Scrolling text</span>
+      <marquee className='dashScroll'>SCROLLING TEXT</marquee>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p>Take the quiz</p>
-        <img className="dashImgContainer" src='../imgs/test.png' alt=''></img>
+        <p className='dashTitle'>Take the quiz!</p>
+        <button className="dashImgContainer" id='quizImg'></button>
         <div>
-            <p>You earn </p> <img></img> <p></p>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>
-      <span className='dashScroll'>Scrolling text</span>
+      <marquee className='dashScroll'>SCROLLING TEXT</marquee>
       <br/>
      <div className="dashContainer" id='dashAudio'>
-        <p>Share an audio recording</p>
-     <img className="dashImgContainer" src='../assets/imgs/test.png' alt=''></img>
+        <p className='dashTitle'>Share an audio recording!</p>
+        <button className="dashImgContainer" id='audioImg' ></button>
         <div>
-            <p>You earn </p> <img></img> <p></p>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>
-      <span className='dashScroll'>Scrolling text</span>
+      <marquee className='dashScroll'>SCROLLING TEXT</marquee>
       <br/>
     </div>
   );

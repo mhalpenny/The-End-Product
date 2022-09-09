@@ -1,5 +1,14 @@
-.primary{
-    color: orange;
+
+
+#header{
+    position: fixed;
+    background-color: white;
+
+}
+
+marquee{
+    background-color: black;
+    color: white;
 }
 
 .welcome{
@@ -179,29 +188,64 @@ button:hover{
 }
 
 .dashImgContainer{
-    width:100%;
-    height: 500px;
-    background-image: url(../imgs/test.png);
-    display: flex;
+    width:300px;
+    height: 300px;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+.dashImgContainer{
+    width:300px;
+    height: 300px;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+.dashTitle{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    /* font-weight: bold; */
+
 }
 
 .dashContainer{
     width: 100%;
-    height: 500px;
-    padding-bottom: 30%;
+    height: 400px;
+    padding-bottom: 5%;
     padding-top: 5%;
+    /* background-color: black;
+    color: white; */
+
 }
 
 .dashScroll{
     padding-top: 5%;
     padding-bottom: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-style: oblique;
 }
 
 .dashContainer p{
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 14px;
-    text-align: left;
     line-height: 20px;
     padding: 3%;
 }
@@ -231,11 +275,32 @@ button:hover{
 
 .cameraIcon{
     background-image: url(../imgs/camera.png);
+    border: 0;
 }
 
 .albumIcon{
     background-image: url(../imgs/album.png);
 }
+
+#galleryImg{
+    background-image: url(../imgs/gallery.png);
+    
+    /* filter: invert(1); */
+}
+
+#camImg{
+    background-image: url(../imgs/cam.png);
+    /* filter: invert(1); */
+}
+
+#quizImg{
+    background-image: url(../imgs/quiz.png);
+}
+
+#audioImg{
+    background-image: url(../imgs/audio.png);
+}
+
 
 .quiz{
     font-family: Inter, sans-serif;
@@ -243,4 +308,17 @@ button:hover{
     font-size: 14px;
     text-align: left;
     line-height: 20px;
+}
+
+.dollar{
+    font-size: 18px;
+}
+
+#headPrice{
+    font-size: 16px;
+    float: right;
+}
+
+#headSpan{
+
 }
