@@ -1,6 +1,6 @@
-import checkUser from './check';
+import checkUser from './UserCheck';
 
-function setBtn(future, current){
+function setButton(future, current){
     if (current == 'loginBtn'){
       checkUser();
 
@@ -37,4 +37,4 @@ function setBtn(future, current){
       }
   }
 
-  export default setBtn
+  export default setButton

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import setBtn from '../assets/js/btn';
+import setButton from '../assets/js/Buttons';
 import setPage from '../App';
 
 function Dashboard(props) {
@@ -17,7 +17,7 @@ function Dashboard(props) {
         <p className='dashTitle'>Share a selfie!</p>
         <button className="dashImgContainer" id='galleryImg'></button>
         <div>
-        {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setBtn('fileBtn', 'mediaBtn');}}>Upload</button> */}
+        {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button> */}
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
       </div>

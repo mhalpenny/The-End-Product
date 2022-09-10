@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import setBtn from '../assets/js/btn';
+import setButton from '../assets/js/Buttons';
 
 function NuQuiz(prop) {
 	const questions = [
@@ -61,7 +61,7 @@ function NuQuiz(prop) {
 		<div className='quiz'>
 			{showScore ? (
 				<div className='score-section'>
-					  <button className = 'userButton' id='finishBtn' onClick={() => { setBtn('none', 'finishBtn');}}>Finish quiz</button>
+					  <button className = 'userButton' id='finishBtn' onClick={() => { setButton('none', 'finishBtn');}}>Finish quiz</button>
 				</div>
 			) : (
 				<>

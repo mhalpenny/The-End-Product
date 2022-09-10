@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import setBtn from '../assets/js/btn';
+import setBtn from '../assets/js/Buttons';
 
 function Login(props) {
   const [name, setName] = useState('');

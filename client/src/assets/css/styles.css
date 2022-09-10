@@ -3,6 +3,10 @@
 #header{
     position: fixed;
     background-color: white;
+    margin-top: 7%;
+    width: 100%;
+    top: 0px;
+    height: 60px;
 
 }
 
@@ -202,7 +206,21 @@ button:hover{
     border: 0;
 }
 
-.dashImgContainer{
+.icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+
+/* .dashImgContainer{
     width:300px;
     height: 300px;
     margin-left: 10%;
@@ -215,7 +233,7 @@ button:hover{
     background-color: white;
     outline: none;
     border: 0;
-}
+} */
 
 .dashTitle{
     font-size: 20px;
@@ -260,17 +278,15 @@ button:hover{
     font-size: 14px;
     text-align: left;
     line-height: 20px;
+    position: relative;
+    float: left;
+    margin-left: 2%;
+    top: 27px;
 }
 
 #mediaUploadContainer{
     width: 100%;
     height: auto;
-}
-
-.icon{
-    position: absolute;
-    width: 35px;
-    height: 35px;
 }
 
 .cameraIcon{
@@ -285,6 +301,24 @@ button:hover{
 #galleryImg{
     background-image: url(../imgs/gallery.png);
     
+    /* filter: invert(1); */
+}
+
+#userImg{
+    background-image: url(../imgs/user.png);
+    float: left;
+    position: relative;
+    top: 25px;
+    margin-left: 3%;
+    /* filter: invert(1); */
+}
+
+
+#dollarImg{
+    background-image: url(../imgs/dollar.png);
+    position: relative;
+    top: 0px;
+    /* margin-left: 10%; */
     /* filter: invert(1); */
 }
 
@@ -315,10 +349,14 @@ button:hover{
 }
 
 #headPrice{
+    position: relative;
     font-size: 16px;
     float: right;
+    right: 40px;
+    margin-left: 2%;
+    top: 25px;
 }
 
 #headSpan{
-
+    width: 80%;
 }
