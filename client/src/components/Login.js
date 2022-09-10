@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import setBtn from '../assets/js/Buttons';
+import setButton from '../assets/js/Buttons';
 
 function Login(props) {
   const [user, setUser] = useState('');
@@ -16,7 +16,7 @@ function Login(props) {
       <br />
       <input type="text" id="userField" className='hidden' value={user} onChange={handleUserChange} required/>
       <br />
-      <button className = 'userButton hidden' id='loginBtn' onClick={() => { props.setUsername(user); setBtn('none', 'loginBtn'); }}>
+      <button className = 'userButton hidden' id='loginBtn' onClick={() => { props.setUsername(user); setButton('none', 'loginBtn'); }}>
         Start
       </button>
     </div>

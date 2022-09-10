@@ -31,7 +31,11 @@ function setButton(future, current){
       var y = document.getElementById(current);
       y.classList.add("hidden");
 
-    } else{
+    }else if (current == 'none'){
+      var y = document.getElementById(future);
+      y.classList.remove("hidden");
+
+    }  else{
         var x = document.getElementById(future);
         x.classList.remove("hidden");
         var y = document.getElementById(current);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import setButton from '../assets/js/Buttons';
-import setPage from '../App';
 
 function Dashboard(props) {
     const [page, setPage] = useState('');
@@ -19,7 +18,7 @@ function Dashboard(props) {
       <br />
       <div className="dashContainer" id='dashMedia'>
         <p className='dashTitle'>Share a selfie!</p>
-        <button className="dashImgContainer" id='galleryImg' onClick={() => { props.setPageState('gallery');}}></button>
+        <button className="dashImgContainer" id='galleryImg' onClick={() => { props.setPageState('gallery'); setButton('mediaBtn', 'none');}}></button>
         <div>
         {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button> */}
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
@@ -30,7 +29,7 @@ function Dashboard(props) {
       <br/>
       <div className="dashContainer" id='dashVideo'>
         <p className='dashTitle'>Share a video!</p>
-        <button className="dashImgContainer" id='camImg'></button>
+        <button className="dashImgContainer" id='camImg' onClick={() => { props.setPageState('camera');}}></button>
         <div>
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
@@ -40,7 +39,7 @@ function Dashboard(props) {
       <br/>
       <div className="dashContainer" id='dashQuiz'>
         <p className='dashTitle'>Take the quiz!</p>
-        <button className="dashImgContainer" id='quizImg'></button>
+        <button className="dashImgContainer" id='quizImg' onClick={() => { props.setPageState('quiz');}}></button>
         <div>
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
@@ -50,7 +49,7 @@ function Dashboard(props) {
       <br/>
      <div className="dashContainer" id='dashAudio'>
         <p className='dashTitle'>Share an audio recording!</p>
-        <button className="dashImgContainer" id='audioImg' ></button>
+        <button className="dashImgContainer" id='audioImg' onClick={() => { props.setPageState('audio');}}></button>
         <div>
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
         </div>
