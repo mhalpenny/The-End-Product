@@ -16,15 +16,12 @@ import setButton from './assets/js/Buttons';
 
 function App() {
   const [page, setPage] = useState('homepage');
-  const [fullName, setFullName] = useState('');
-  const [user, setUser] = useState('hello');
+  const [user, setUser] = useState('');
 
   const renderMenu = () => {
     return (
       <div>
-        {/* <UserContext.Provider value={{user, setUser}}>
-        <Header/>
-        </UserContext.Provider> */}
+        <Header user={user}/>
         {/* <Header initialUser={fullName} initialPrice={price}/> */}
         {/* <button className = 'userButton hidden' id='loginBtn' onClick={() => { setPage('login'); setButton('quizBtn', 'loginBtn'); }}>Start</button> */}
         <button className = 'endButton hidden' id='fileBtn' onClick={() => { setPage('dashboard'); setButton('mediaBtn', 'fileBtn');}}>Share</button>
@@ -34,7 +31,6 @@ function App() {
         <button className = 'endButton' id='homeBtn' onClick={() => { setPage('login'); setButton('loginBtn', 'homeBtn');}}>Get started!</button>
         <button className = 'dashButton hidden' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button>
         <button className = 'dashButton hidden' id='quizBtn' onClick={() => { setPage('quiz'); setButton('none', 'quizBtn');}}>Quiz</button>
-        {fullName}
       </div>
     )
   }
@@ -44,7 +40,7 @@ function App() {
       case 'dashboard':
         return <Dashboard />
       case 'login':
-        return <Login setFullestName={setFullName} />
+        return <Login setUsername={setUser} />
       case 'fileUpload':
         return <FileUpload />
       case 'priceList':
