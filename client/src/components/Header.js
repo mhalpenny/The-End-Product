@@ -6,8 +6,8 @@ function Header(props) {
   return (
     <div id='header'>
         <div className="helloContainer">
-            <span id='headSpan'>
-                <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, Temp!</h1>
+            <span id='headSpan' className='hidden'>
+                <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, {props.user}!</h1>
             <p id='headPrice'> <b class='dollar'>$</b> 0.12</p>
             </span>
         </div>    

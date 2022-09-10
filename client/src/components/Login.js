@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import setBtn from '../assets/js/Buttons';
 
 function Login(props) {
-  const [name, setName] = useState('');
+  const [user, setUser] = useState('');
 
-  const handleFirstNameChange = (event) => {
-    setName(event.target.value);
+  const handleUserChange = (event) => {
+    setUser(event.target.value);
   }
 
   return (
     <div className="Login">
       <div className="welcomeContainer">
-      <h1 className="welcome">Choose your username</h1>
+      <h1 className="welcome" id='chooseUsername'>Choose your username</h1>
       </div>
       <br />
-      <input type="text" id="userField" className='hidden' value={name} onChange={handleFirstNameChange} required/>
+      <input type="text" id="userField" className='hidden' value={user} onChange={handleUserChange} required/>
       <br />
-      <button className = 'userButton hidden' id='loginBtn' onClick={() => { props.setFullestName(name); setBtn('quizBtn', 'loginBtn'); }}>
+      <button className = 'userButton hidden' id='loginBtn' onClick={() => { props.setUsername(user); setBtn('none', 'loginBtn'); }}>
         Start
       </button>
     </div>

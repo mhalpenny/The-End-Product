@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function FileUpload() {
+function Camera() {
   return (
     <div className="FileUpload">
          <div className="helloContainer">
@@ -25,4 +25,4 @@ function FileUpload() {
   );
 }
 
-export default FileUpload;
+export default Camera;

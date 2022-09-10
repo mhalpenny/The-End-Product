@@ -3,7 +3,11 @@ import setButton from '../assets/js/Buttons';
 import setPage from '../App';
 
 function Dashboard(props) {
-
+    const [page, setPage] = useState('');
+    
+    // const handlePageChange = (event) => {
+    //     setPage(event.target.value);
+    // }
   return (
     <div className="dashboard">
       {/* <div className="helloContainer">
@@ -15,7 +19,7 @@ function Dashboard(props) {
       <br />
       <div className="dashContainer" id='dashMedia'>
         <p className='dashTitle'>Share a selfie!</p>
-        <button className="dashImgContainer" id='galleryImg'></button>
+        <button className="dashImgContainer" id='galleryImg' onClick={() => { props.setPageState('gallery');}}></button>
         <div>
         {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button> */}
         <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>

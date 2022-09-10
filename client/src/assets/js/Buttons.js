@@ -5,12 +5,14 @@ function setButton(future, current){
       checkUser();
 
       if(checkUser()){
-        // var head = document.getElementById('headSpan');
-        // head.classList.remove("hidden");
+        var head = document.getElementById('headSpan');
+        head.classList.remove("hidden");
+        var welcome = document.getElementById('chooseUsername');
+        welcome.classList.add("hidden");
         var w = document.getElementById('quizBtn');
         w.classList.remove("hidden");
-        var x = document.getElementById(future);
-        x.classList.remove("hidden");
+        // var x = document.getElementById(future);
+        // x.classList.remove("hidden");
         var y = document.getElementById(current);
         y.classList.add("hidden");
         var z = document.getElementById('userField');
