@@ -1,28 +1,32 @@
 import React, { useState } from 'react';
+import uploadMedia from '../assets/js/Upload';
+import setButton from '../assets/js/Buttons';
 
 function Camera(props) {
     const [page, setPage] = useState('');
+    const [value, setValue] = useState('');
     
-  return (
-    <div className="FileUpload">
-        <button className = 'endButton' id='fileBtn' onClick={() => { props.setPageState('dashboard'); }}>Share</button>
-      <div className="welcomeContainer">
-      <h1 className="welcome">Upload something</h1>
+    return (
+      <div className="FileUpload">
+          <button className = 'endButton' id='uploadBtn' onClick={() => { uploadMedia(); setButton('sellBtn', 'uploadBtn');}}>Upload</button>
+          <button className = 'endButton hidden' id='sellBtn' onClick={() => { props.setPageState('dashboard'); props.setValuePrice(value + 0.25);}}>Sell</button>
+          <button className = 'backButton' id='backBtn' onClick={() => { props.setPageState('dashboard'); }}>Cancel</button>
+        <div className="welcomeContainer">
+        <h1 className="welcome">Upload something</h1>
+        </div>
+        <br />
+        <img id='imgPreview' alt=''></img>
+        <br/>
+        <div id='mediaUploadContainer'>
+        <form id="imageForm">
+        <input id="imageInput" type="file" className = "browseButton" accept="video/*;capture=camcorder"/>
+        {/* <button type='submit' className = 'endButton' id='mediaBtn' alt=''></button> */}
+        </form>
+        </div>
+        {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { props.setPageState('dashboard'); }}>Browse gallery</button>
+        <br/> */}
       </div>
-      <br />
-      <img></img>
-      <br/>
-      <div id='mediaUploadContainer'>
-      <form id="imageForm">
-      <input id="imageInput" type="file" accept="image/*"/>
-      <button type='submit' className='icon album' alt=''></button>
-      </form>
-      <img className='icon camera' alt=''></img>
-      </div>
-      <button className = 'dashButton' id='mediaBtn' onClick={() => { props.setPageState('dashboard'); }}>Upload</button>
-      <br/>
-    </div>
-  );
+    );
 }
 
 export default Camera;
