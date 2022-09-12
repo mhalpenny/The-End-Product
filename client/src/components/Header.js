@@ -7,7 +7,7 @@ function Header(props) {
         <div className="helloContainer">
             <span id='headSpan' className='hidden'>
                 <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, {props.user}!</h1>
-            <p id='headPrice'> <b class='dollar'>$</b> {props.value} </p>
+            <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
             </span>
         </div>    
     </div>
@@ -49,7 +49,7 @@ function Header(props) {
 //                 <div className="helloContainer">
 //                     <span id='headSpan' className='hidden'>
 //                         <h1 className="hello">{this.props.user}</h1>
-//                         <p id='headPrice'> <b class='dollar'>$</b>{this.props.price}</p>
+//                         <p id='headPrice'> <b className='dollar'>$</b>{this.props.price}</p>
 //                     </span>
 //                 </div>    
 //             </div>

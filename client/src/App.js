@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 
 import Gallery from './components/Gallery';
 import Login from './components/Login';
@@ -10,13 +10,23 @@ import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Stylesheet from './components/Stylesheet';
+import {getInitialState, setLocalState} from './assets/js/Local';
 
 // import './App.css';
 
 function App() {
-  const [page, setPage] = useState('homepage');
+  // const [page, setPage] = useState('homepage');
+  const [page, setPage] = useState(localStorage.getItem('page'));
   const [user, setUser] = useState('');
   const [value, setValue] = useState('0.00');
+
+  //call state from local memory
+  // const [local, setLocal] = useState(localStorage.getItem('page') === 'true');
+  
+  //set local memory to hold state to avoid app refreshes
+  useEffect(() => {
+    localStorage.setItem('page', page);
+  }, [page]);
 
   const renderHeader = () => {
     return(
@@ -64,8 +74,6 @@ function App() {
   return (
     <div className="App">
       {renderHeader()}
-      {/* {renderMenu()}
-      {renderButtons()} */}
       {renderContent()}
     </div>
   );
