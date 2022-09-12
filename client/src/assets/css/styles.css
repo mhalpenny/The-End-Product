@@ -449,3 +449,96 @@ button:hover{
     color: #000;
     border: 1px solid #000;
 }
+
+#newGalleryBtn{
+    margin-top: 150px;
+}
+
+#newCameraBtn{
+    margin-top: 300px;
+}
+
+#newQuizBtn{
+    margin-top: 450px;
+}
+
+#newAudioBtn{
+    margin-top: 600px;
+}
+
+.valueField{
+    position: absolute;
+    margin-top: 385px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+#valueFieldGallery{
+    margin-top: 100px;
+}
+
+#valueFieldCamera{
+    margin-top: 250px;
+}
+
+#valueFieldQuiz{
+    margin-top: 400px;
+}
+
+#valueFieldAudio{
+    margin-top: 550px;
+}
+
+.displayButton{
+    position: absolute;
+    margin-top: 400px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: black;
+    color: white;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+#displayGalleryBtn{
+    margin-top: 50px;
+}
+
+#displayCameraBtn{
+    margin-top: 200px;
+}
+
+#displayQuizBtn{
+    margin-top: 350px;
+}
+
+#displayAudioBtn{
+    margin-top: 500px;
+}
+
+
