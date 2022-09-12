@@ -17,8 +17,8 @@ function App() {
   // const [page, setPage] = useState('homepage');
   const [page, setPage] = useState(localStorage.getItem('page'));
   const [user, setUser] = useState(localStorage.getItem('user'));
-  const [value, setValue] = useState('0.00');
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [value, setValue] = useState(localStorage.getItem('value'));
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem('loggedIn'));
 
   //set local memory to hold state to avoid app refreshes
   useEffect(() => {
@@ -29,9 +29,13 @@ function App() {
     localStorage.setItem('user', user);
   }, [user]);
 
-  // useEffect(() => {
-  //   localStorage.setItem('value', value);
-  // }, [value]);
+  useEffect(() => {
+    localStorage.setItem('value', value);
+  }, [value]);
+
+  useEffect(() => {
+    localStorage.setItem('loggedIn', loggedIn);
+  }, [loggedIn]);
 
   const renderHeader = () => {
     return(
@@ -41,7 +45,7 @@ function App() {
   const renderDev = () => {
     return(
      <div>
-      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' ')}}>Wipe</button>
+      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' '); setValue('0.00'); setLoggedIn(false)}}>Wipe</button>
      </div>
     )
   }
@@ -66,7 +70,7 @@ function App() {
       case 'dashboard':
         return <Dashboard setPageState={setPage} setValuePrice={setValue}/>
       case 'login':
-        return <Login setUsername={setUser} setPageState={setPage} setNewLogin={setLoggedIn}/>
+        return <Login setUsername={setUser} setValuePrice={setValue} setPageState={setPage} setNewLogin={setLoggedIn}/>
       case 'gallery':
         return <Gallery setPageState={setPage} setValuePrice={setValue}/>
       case 'camera':
@@ -87,7 +91,7 @@ function App() {
     <div className="App">
       {renderHeader()}
       {renderContent()}
-      {/* {renderDev()} */}
+      {renderDev()}
     </div>
   );
 }

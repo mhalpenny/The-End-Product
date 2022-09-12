@@ -6,12 +6,13 @@ function Gallery(props) {
   const [page, setPage] = useState('');
   const [value, setValue] = useState('');
 
-  // const handleValueChange = (event) => {
-  //   setValue(event.target.value);
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log('You clicked submit.');
   // }
   return (
     <div className="FileUpload">
-        <button className = 'endButton' id='uploadBtn' onClick={() => { uploadMedia(); setButton('sellBtn', 'uploadBtn');}}>Upload</button>
+        <button className = 'endButton' id='uploadBtn' type="submit" onClick={() => { setButton('sellBtn', 'uploadBtn');}}>Upload</button>
         <button className = 'endButton hidden' id='sellBtn' onClick={() => { props.setPageState('dashboard'); props.setValuePrice(value + 0.25);}}>Sell</button>
         <button className = 'backButton' id='backBtn' onClick={() => { props.setPageState('dashboard'); }}>Cancel</button>
       <div className="welcomeContainer">
@@ -28,6 +29,7 @@ function Gallery(props) {
       </div>
       {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { props.setPageState('dashboard'); }}>Browse gallery</button>
       <br/> */}
+      <script src="NodeIndex.js"></script>
     </div>
   );
 }

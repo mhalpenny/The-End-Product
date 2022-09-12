@@ -4,6 +4,7 @@ import setButton from '../assets/js/Buttons';
 function Login(props) {
   const [user, setUser] = useState('');
   const [page, setPage] = useState('');
+  const [value, setValue] = useState('');
   const [loggedIn, setLoggedIn] = useState('');
 
   const handleUserChange = (event) => {
@@ -18,7 +19,7 @@ function Login(props) {
       <br />
       <input type="text" id="userField" value={user} onChange={handleUserChange} required/>
       <br />
-      <button className = 'userButton' id='loginBtn' onClick={() => { props.setUsername(user); props.setPageState('dashboard'); setButton('none', 'loginBtn'); props.setNewLogin(true); }}>
+      <button className = 'userButton' id='loginBtn' onClick={() => { props.setUsername(user); props.setPageState('dashboard'); setButton('none', 'loginBtn'); props.setNewLogin(true); props.setValuePrice('0.00');}}>
         Start
       </button>
     </div>
