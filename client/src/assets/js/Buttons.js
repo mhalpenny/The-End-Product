@@ -9,31 +9,31 @@ function setButton(future, current){
         head.classList.remove("hidden");
         var welcome = document.getElementById('chooseUsername');
         welcome.classList.add("hidden");
-        var w = document.getElementById('quizBtn');
-        w.classList.remove("hidden");
+        // var w = document.getElementById('quizBtn');
+        // w.classList.remove("hidden");
         // var x = document.getElementById(future);
         // x.classList.remove("hidden");
-        var y = document.getElementById(current);
-        y.classList.add("hidden");
+        // var y = document.getElementById(current);
+        // y.classList.add("hidden");
         var z = document.getElementById('userField');
         z.classList.add("hidden");
       }
       
     } else if (current == 'homeBtn'){
-      var x = document.getElementById(future);
-      x.classList.remove("hidden");
-      var y = document.getElementById(current);
-      y.classList.add("hidden");
+      // var x = document.getElementById(future);
+      // x.classList.remove("hidden");
+      // var y = document.getElementById(current);
+      // y.classList.add("hidden");
       var z = document.getElementById('userField');
       z.classList.remove("hidden");
 
     } else if (future == 'none'){
-      var y = document.getElementById(current);
-      y.classList.add("hidden");
+      // var y = document.getElementById(current);
+      // y.classList.add("hidden");
 
     }else if (current == 'none'){
-      var y = document.getElementById(future);
-      y.classList.remove("hidden");
+      // var y = document.getElementById(future);
+      // y.classList.remove("hidden");
 
     }  else{
         var x = document.getElementById(future);

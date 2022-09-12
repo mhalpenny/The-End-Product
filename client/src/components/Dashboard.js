@@ -3,15 +3,13 @@ import setButton from '../assets/js/Buttons';
 
 function Dashboard(props) {
     const [page, setPage] = useState('');
+    const [value, setValue] = useState('');
     
     // const handlePageChange = (event) => {
     //     setPage(event.target.value);
     // }
   return (
     <div className="dashboard">
-      {/* <div className="helloContainer">
-      <h1 className="hello">Hi! user</h1>
-      </div> */}
       <br />
       <br />
       <br />
@@ -21,7 +19,7 @@ function Dashboard(props) {
         <button className="dashImgContainer" id='galleryImg' onClick={() => { props.setPageState('gallery'); setButton('mediaBtn', 'none');}}></button>
         <div>
         {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button> */}
-        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.25</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>
@@ -41,7 +39,7 @@ function Dashboard(props) {
         <p className='dashTitle'>Take the quiz!</p>
         <button className="dashImgContainer" id='quizImg' onClick={() => { props.setPageState('quiz');}}></button>
         <div>
-        <span className='earnSpan'><p>You earn <b>$</b> 0.00</p> <img></img> <p></p></span>
+        <span className='earnSpan'><p>You earn <b>$</b> 0.25</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>

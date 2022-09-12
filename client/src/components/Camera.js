@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-function Camera() {
+function Camera(props) {
+    const [page, setPage] = useState('');
+    
   return (
     <div className="FileUpload">
-         <div className="helloContainer">
-      <h1 className="hello">Hi! user</h1>
-      </div>
-      <br />
+        <button className = 'endButton' id='fileBtn' onClick={() => { props.setPageState('dashboard'); }}>Share</button>
       <div className="welcomeContainer">
       <h1 className="welcome">Upload something</h1>
       </div>
@@ -20,6 +19,7 @@ function Camera() {
       </form>
       <img className='icon camera' alt=''></img>
       </div>
+      <button className = 'dashButton' id='mediaBtn' onClick={() => { props.setPageState('dashboard'); }}>Upload</button>
       <br/>
     </div>
   );

@@ -55,6 +55,62 @@ marquee{
     4px 4px 0px 2px black;
 }
 
+.browseButton{
+    position: absolute;
+    margin-top: 250px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 70%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+#finishBtn{
+    left: 10px;
+}
+
+#quizText{
+    margin-left: 18%;
+    top: 100px;
+}
+
+input[type=file]::file-selector-button {
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    border: 0;
+    padding: 12px;
+    border-radius: .2em;
+    background-color: black;
+    color: white;
+  }
+  
+  input[type=file]::-ms-browse:hover {
+    background-color: black;
+    border: 0;
+  }
+  
+  input[type=file]::-webkit-file-upload-button:hover {
+    background-color: #81ecec;
+    border: 0;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: black;
+    border: 0;
+  }
+
 #userField{
     position: absolute;
     margin-top: 385px;
@@ -278,7 +334,7 @@ button:hover{
 .hello{
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 18px;
     text-align: left;
     line-height: 20px;
     position: relative;
@@ -352,14 +408,22 @@ button:hover{
 }
 
 #headPrice{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
     position: relative;
-    font-size: 16px;
+    font-size: 18px;
     float: right;
-    right: 40px;
+    right: 20px;
     margin-left: 2%;
-    top: 25px;
+    top: 30px;
 }
 
 #headSpan{
     width: 80%;
+}
+
+#imageInput{
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
 }

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import setButton from '../assets/js/Buttons';
+import React, { useState, forceUpdate } from 'react';
+import Header from './Header'
 
-function NuQuiz(prop) {
+function Quiz(props) {
+	const [page, setPage] = useState('');
+	const [value, setValue] = useState('');
+
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -60,8 +63,9 @@ function NuQuiz(prop) {
 	return (
 		<div className='quiz'>
 			{showScore ? (
-				<div className='score-section'>
-					  <button className = 'userButton' id='finishBtn' onClick={() => { setButton('none', 'finishBtn');}}>Finish quiz</button>
+				<div className='score-section welcomeContainer'>
+					  <h1 className="welcome" id='quizText'>That's it!</h1>
+					  <button className = 'endButton' id='finishBtn' onClick={() => {props.setValuePrice(value + 0.25); props.setPageState('dashboard'); Header.forceUpdate();}}>Finish quiz</button>
 				</div>
 			) : (
 				<>
@@ -86,4 +90,4 @@ function NuQuiz(prop) {
 	);
 }
 
-export default NuQuiz;
+export default Quiz;
