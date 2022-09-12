@@ -1,17 +1,33 @@
-import React, {UseContext} from 'react';
+import React from 'react';
 
 function Header(props) {
-   
-  return (
-    <div id='header'>
-        <div className="helloContainer">
-            <span id='headSpan' className='hidden'>
-                <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, {props.user}!</h1>
-            <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
-            </span>
-        </div>    
-    </div>
-  )
+  // const isLoggedIn = props.user;
+  console.log(props.page);
+  console.log(props.user);
+  console.log(props.loggedIn);
+   if (props.loggedIn){
+    return (
+      <div id='header'>
+          <div className="helloContainer">
+              <span id='headSpan' className=''>
+                  <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, {props.user}!</h1>
+              <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
+              </span>
+          </div>    
+      </div>
+    )
+   } else {
+    return(
+      <div id='header' className='hidden'>
+          <div className="helloContainer">
+              <span id='headSpan' className=''>
+                  <img id='userImg' className='icon' src='../assets/imgs/user.png' alt=''/><h1 className="hello">Hello, {props.user}!</h1>
+              <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
+              </span>
+          </div>    
+      </div>
+    )
+   }
 }
 
 // <img id='dollarImg' className='icon' src='../assets/imgs/dollar.png' alt=''/>

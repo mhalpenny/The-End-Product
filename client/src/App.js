@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Gallery from './components/Gallery';
 import Login from './components/Login';
@@ -10,27 +10,39 @@ import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Stylesheet from './components/Stylesheet';
-import {getInitialState, setLocalState} from './assets/js/Local';
 
 // import './App.css';
 
 function App() {
   // const [page, setPage] = useState('homepage');
   const [page, setPage] = useState(localStorage.getItem('page'));
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(localStorage.getItem('user'));
   const [value, setValue] = useState('0.00');
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  //call state from local memory
-  // const [local, setLocal] = useState(localStorage.getItem('page') === 'true');
-  
   //set local memory to hold state to avoid app refreshes
   useEffect(() => {
     localStorage.setItem('page', page);
   }, [page]);
 
+  useEffect(() => {
+    localStorage.setItem('user', user);
+  }, [user]);
+
+  // useEffect(() => {
+  //   localStorage.setItem('value', value);
+  // }, [value]);
+
   const renderHeader = () => {
     return(
-      <Header user={user} value={value}/>
+      <Header user={user} value={value} page={page} loggedIn={loggedIn}/>
+    )
+  }
+  const renderDev = () => {
+    return(
+     <div>
+      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' ')}}>Wipe</button>
+     </div>
     )
   }
   
@@ -54,7 +66,7 @@ function App() {
       case 'dashboard':
         return <Dashboard setPageState={setPage} setValuePrice={setValue}/>
       case 'login':
-        return <Login setUsername={setUser} setPageState={setPage} />
+        return <Login setUsername={setUser} setPageState={setPage} setNewLogin={setLoggedIn}/>
       case 'gallery':
         return <Gallery setPageState={setPage} setValuePrice={setValue}/>
       case 'camera':
@@ -75,6 +87,7 @@ function App() {
     <div className="App">
       {renderHeader()}
       {renderContent()}
+      {/* {renderDev()} */}
     </div>
   );
 }

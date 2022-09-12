@@ -13,6 +13,7 @@ function Gallery(props) {
     <div className="FileUpload">
         <button className = 'endButton' id='uploadBtn' onClick={() => { uploadMedia(); setButton('sellBtn', 'uploadBtn');}}>Upload</button>
         <button className = 'endButton hidden' id='sellBtn' onClick={() => { props.setPageState('dashboard'); props.setValuePrice(value + 0.25);}}>Sell</button>
+        <button className = 'backButton' id='backBtn' onClick={() => { props.setPageState('dashboard'); }}>Cancel</button>
       <div className="welcomeContainer">
       <h1 className="welcome">Upload something</h1>
       </div>
