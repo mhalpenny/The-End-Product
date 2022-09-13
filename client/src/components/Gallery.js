@@ -1,19 +1,60 @@
 import React, { useState } from 'react';
 import uploadMedia from '../assets/js/Upload';
-import setButton from '../assets/js/Buttons';
 
 function Gallery(props) {
-  const [page, setPage] = useState('');
-  const [value, setValue] = useState('');
+  const [showSellButton, setShowSellButton] = useState(false);
+  const [uploadUrl, setUploadUrl] = useState('');
+  const [images, setImages] = useState([]);
+  function onImageChange(e) {
+    setImages([...e.target.files]);
+  }
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log('You clicked submit.');
-  // }
+
+  const handleUploadClick = async () => {
+    
+    // TODO: get all required props, call server to get s3url
+    // when promise returns, call setShowSellButton
+    console.log('upload');
+
+    // TODO: replace this with url set via environment variable
+    // TODO: pass in media 'type' - e.g. images, etc
+    // TODO: pass in performance date as first keyName segment
+    // final keyName could look like 2022-12-12/matt/image-50-0.25
+    const keyName=`${props.user}/${Math.floor((Math.random() * 50))}-${props.value}`;
+    console.log(keyName);
+    const { url } = await fetch(`http://localhost:8080/s3Url?keyName=${keyName}`).then(res => res.json());
+    setShowSellButton(true);
+    setUploadUrl(url);
+  }
+
+  const handleSellClick = async () => {
+    console.log('sell');
+    console.log(uploadUrl);
+    // TODO: actually upload it
+    await fetch(uploadUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+      body: images[0],
+    });
+    
+    props.setPageState('dashboard');
+    props.setValuePrice(props.value + 0.25);
+  }
+
+  const renderButton = () => {
+    if (showSellButton === true) {
+      return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
+    } else {
+      // TODO: this should be disabled unless user has actually selected a file
+      return <button className = 'endButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
+    }
+  }
+
   return (
     <div className="FileUpload">
-        <button className = 'endButton' id='uploadBtn' type="submit" onClick={() => { setButton('sellBtn', 'uploadBtn');}}>Upload</button>
-        <button className = 'endButton hidden' id='sellBtn' onClick={() => { props.setPageState('dashboard'); props.setValuePrice(value + 0.25);}}>Sell</button>
+        {renderButton()}
         <button className = 'backButton' id='backBtn' onClick={() => { props.setPageState('dashboard'); }}>Cancel</button>
       <div className="welcomeContainer">
       <h1 className="welcome">Upload something</h1>
@@ -23,13 +64,9 @@ function Gallery(props) {
       <br/>
       <div id='mediaUploadContainer'>
       <form id="imageForm">
-      <input id="imageInput" type="file" className = 'browseButton' accept="image/*"/>
-      {/* <button type='submit' className = 'endButton' id='mediaBtn' alt=''></button> */}
+      <input id="imageInput" type="file" className = 'browseButton' accept="image/*" onChange={onImageChange} />
       </form>
       </div>
-      {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { props.setPageState('dashboard'); }}>Browse gallery</button>
-      <br/> */}
-      <script src="NodeIndex.js"></script>
     </div>
   );
 }

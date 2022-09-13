@@ -3,9 +3,6 @@ import setButton from '../assets/js/Buttons';
 
 function Login(props) {
   const [user, setUser] = useState('');
-  const [page, setPage] = useState('');
-  const [value, setValue] = useState('');
-  const [loggedIn, setLoggedIn] = useState('');
 
   const handleUserChange = (event) => {
     setUser(event.target.value);

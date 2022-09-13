@@ -3,7 +3,6 @@ import Header from './Header'
 
 function Quiz(props) {
 	const [page, setPage] = useState('');
-	const [value, setValue] = useState('');
 
 	const questions = [
 		{
@@ -65,7 +64,13 @@ function Quiz(props) {
 			{showScore ? (
 				<div className='score-section welcomeContainer'>
 					  <h1 className="welcome" id='quizText'>That's it!</h1>
-					  <button className = 'endButton' id='finishBtn' onClick={() => {props.setValuePrice(value + 0.25); props.setPageState('dashboard'); Header.forceUpdate();}}>Finish quiz</button>
+					  <button className = 'endButton' id='finishBtn' onClick={() => {
+						const toSet = props.value + 0.25;
+						console.log('.........');
+						console.log(toSet)
+						props.setValuePrice(toSet);
+						props.setPageState('dashboard');
+					}}>Finish quiz</button>
 				</div>
 			) : (
 				<>

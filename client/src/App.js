@@ -10,6 +10,7 @@ import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Stylesheet from './components/Stylesheet';
+import { fetchValuesFromS3 } from './utils';
 
 // import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
   // const [page, setPage] = useState('homepage');
   const [page, setPage] = useState(localStorage.getItem('page'));
   const [user, setUser] = useState(localStorage.getItem('user'));
+  // TODO: convert the value to a number
   const [value, setValue] = useState(localStorage.getItem('value'));
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('loggedIn'));
 
@@ -37,7 +39,13 @@ function App() {
     localStorage.setItem('loggedIn', loggedIn);
   }, [loggedIn]);
 
+  // TODO: create a useEffect that does a setTimeout to call fetchValuesFromS3
+  // and set your local values according
+  // refer to the implementation in Control.js if needed
+
   const renderHeader = () => {
+    console.log('%%%');
+    console.log(value)
     return(
       <Header user={user} value={value} page={page} loggedIn={loggedIn}/>
     )
@@ -68,19 +76,19 @@ function App() {
   const renderContent = () => {
     switch (page) {
       case 'dashboard':
-        return <Dashboard setPageState={setPage} setValuePrice={setValue}/>
+        return <Dashboard setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       case 'login':
         return <Login setUsername={setUser} setValuePrice={setValue} setPageState={setPage} setNewLogin={setLoggedIn}/>
       case 'gallery':
-        return <Gallery setPageState={setPage} setValuePrice={setValue}/>
+        return <Gallery setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       case 'camera':
-        return <Camera setPageState={setPage} setValuePrice={setValue}/>
+        return <Camera setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       case 'priceList':
         return <PriceList />
       case 'quiz':
-        return <Quiz setPageState={setPage} setValuePrice={setValue}/>
+        return <Quiz setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       case 'audio':
-        return <Audio setPageState={setPage} setValuePrice={setValue}/>
+        return <Audio setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       default:
         return <Homepage setPageState={setPage}/>
 
@@ -91,7 +99,7 @@ function App() {
     <div className="App">
       {renderHeader()}
       {renderContent()}
-      {renderDev()}
+      {/* {renderDev()} */}
     </div>
   );
 }
