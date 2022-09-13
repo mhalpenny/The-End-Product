@@ -11,16 +11,23 @@ function Login(props) {
   return (
     <div className="Login">
       <div className="welcomeContainer">
-      <h1 className="welcome" id='chooseUsername'>Choose your username</h1>
+        <h1 className="welcome" id='chooseUsername'>Choose your username</h1>
       </div>
-      <br />
+      <br/>
       <input type="text" id="userField" value={user} onChange={handleUserChange} required/>
       <br />
-      <button className = 'userButton' id='loginBtn' onClick={() => { props.setUsername(user); props.setPageState('dashboard'); setButton('none', 'loginBtn'); props.setNewLogin(true); props.setValuePrice('0.00');}}>
+      <button className = 'userButton' id='loginBtn' 
+        onClick={() => { 
+          props.setUsername(user); 
+          props.setPageState('dashboard'); 
+          setButton('none', 'loginBtn'); 
+          props.setNewLogin(true); 
+          props.setValuePrice('0.00');}}>
         Start
       </button>
     </div>
   );
+  
 }
 
 export default Login;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Header(props) {
-  // const isLoggedIn = props.user;
-  console.log(props.page);
-  console.log(props.user);
-  console.log(props.loggedIn);
+//   console.log(props.page);
+//   console.log(props.user);
+//   console.log(props.loggedIn);
+
    if (props.loggedIn){
     return (
       <div id='header'>

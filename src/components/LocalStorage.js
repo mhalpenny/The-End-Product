@@ -1,7 +1,8 @@
     import React, { useEffect } from 'react';
 
+  //puts every state we've created in the app runtime, or received remotely, 
+  //into localstorage in case the browser is disrupted
   function LocalStorage(props) {
-    
     useEffect(() => {
         localStorage.setItem('page', props.page);
     }, [props.page]);
@@ -9,7 +10,13 @@
     useEffect(() => {
         localStorage.setItem('user', props.user);
     }, [props.user]);
+    
+    useEffect(() => {
+        localStorage.setItem('loggedIn', props.loggedIn);
+    }, [props.loggedIn]);
 
+    //certain states require stringfication to transfer properly
+    //this happens automatically in localstorage but not the way we want
     useEffect(() => {
         localStorage.setItem('value', JSON.stringify(props.value));
     }, [props.value]);
@@ -29,10 +36,6 @@
     useEffect(() => {
         localStorage.setItem('audioValue', JSON.stringify(props.audioValue));
     }, [props.audioValue]);
-
-    useEffect(() => {
-        localStorage.setItem('loggedIn', props.loggedIn);
-    }, [props.loggedIn]);
 
     return (
         <div>

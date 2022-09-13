@@ -2,6 +2,7 @@ import React from 'react';
 import setButton from '../assets/js/Buttons';
 
 function Dashboard(props) {
+
   return (
     <div className="dashboard">
       <br /><br /><br /><br/>
@@ -63,6 +64,7 @@ function Dashboard(props) {
       <br/>
     </div>
   );
+  
 }
 
 export default Dashboard;

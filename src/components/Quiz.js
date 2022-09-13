@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 function Quiz(props) {
-	// const [page, setPage] = useState('');
-
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -46,6 +44,7 @@ function Quiz(props) {
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 
+	//modified from a score based quiz, TODO: remove score
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
@@ -62,9 +61,12 @@ function Quiz(props) {
 		<div className='quiz'>
 			{showScore ? (
 				<div className='score-section welcomeContainer'>
-					  <h1 className="welcome" id='quizText'>That's it!</h1>
-					  <button className = 'endButton' id='finishBtn' onClick={() => {
-						    console.log('value: ' + props.value);
+					<h1 className="welcome" id='quizText'>That's it!</h1>
+					{/* this button absolutely needs to be cleaned up */}
+					{/* and converted to a state based process */}
+					<button className = 'endButton' id='finishBtn' 
+						onClick={() => {
+							console.log('value: ' + props.value);
 							let numValue = props.value;
 							numValue = +numValue;
 							console.log('Qvalue: ' + props.quizValue);
@@ -72,9 +74,11 @@ function Quiz(props) {
 							numQuizValue = +numQuizValue;
 							props.setValuePrice(numValue + numQuizValue);
 							console.log('Addition: ' + props.value);
-						console.log('.........');
-						props.setPageState('dashboard');
-					}}>Finish quiz</button>
+							console.log('.........');
+							props.setPageState('dashboard');
+						}}>
+					Finish quiz
+					</button>
 				</div>
 			) : (
 				<>
@@ -83,8 +87,7 @@ function Quiz(props) {
 						Quiz Title
 						</div>
 						<div className='quizNumber'>
-							{/* <span>Question #{currentQuestion + 1}</span>/{questions.length} */}
-                            <span>Question #{currentQuestion + 1}</span>:
+							 <span>Question #{currentQuestion + 1}</span>:
 						</div>
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>

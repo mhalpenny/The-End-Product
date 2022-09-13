@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { fetchValuesFromS3 } from '../assets/js/Utils';
 
+//Control is in the process of being abstracted into new functions
+//It acts as a space where performers can debug value substitutions
 function Control(props) {
-    // const [page, setPage] = useState('');
+    //set component-scope values to be manipulated locally and saved remotely
     const [galleryValue, setGalleryValue] = useState(0);
     const [cameraValue, setCameraValue] = useState(0);
     const [quizValue, setQuizValue] = useState(0);
     const [audioValue, setAudioValue] = useState(0);
 
+    //take the properties of JSON file and save them here for displaying
     const setValuesLocally = (valuesObject) => {
         setGalleryValue(valuesObject.galleryValue);
         setCameraValue(valuesObject.cameraValue);
@@ -15,6 +18,7 @@ function Control(props) {
         setAudioValue(valuesObject.audioValue);
     }
 
+    //fetch the JSON states from s3
     useEffect(() => {
         const fetchValuesFromS3AndSetLocally = async () => {
             console.log('fetchValuesFromS3AndSetLocally');
@@ -25,14 +29,37 @@ function Control(props) {
         fetchValuesFromS3AndSetLocally();
       }, []);      
     
-    // handlers for gallery value
+    // handlers for gallery value change
     const handleGalleryValueChange = (event) => {
         setGalleryValue(event.target.value);
     }
 
-    const handleGalleryValueSubmit = async () => {
-        // TODO: you could abstract some of this code out so you don't have so much repeating code
+    //new function to cut down on repetition, yet to be implemented
+    //WIP ---
+    const submitValues = async (value) => {
         const existingValues = await fetchValuesFromS3();
+        existingValues.value = +value;
+        const newValuesJSON = JSON.stringify(existingValues);
+
+        const fileBlob = new Blob([newValuesJSON], {
+            type: 'application/json'
+        });
+
+        const fileToUpload = new File([fileBlob], "filename");
+
+        await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
+            method: "PUT",
+            headers: {
+                "Content-Type": "multipart/form-data"
+            },
+            body: fileToUpload,
+            });
+        }
+    //---
+
+    //handler to submit new states to be saved as a new JSON file on s3
+   const handleGalleryValueSubmit = async () => {
+       const existingValues = await fetchValuesFromS3();
         existingValues.galleryValue = +galleryValue;
         const newValuesJSON = JSON.stringify(existingValues);
 
@@ -51,39 +78,37 @@ function Control(props) {
           });
     }
 
-        // handlers for gallery value
-        const handleCameraValueChange = (event) => {
-            setCameraValue(event.target.value);
-        }
-    
-        const handleCameraValueSubmit = async () => {
-            // TODO: you could abstract some of this code out so you don't have so much repeating code
-            const existingValues = await fetchValuesFromS3();
-            existingValues.cameraValue = +cameraValue;
-            const newValuesJSON = JSON.stringify(existingValues);
-    
-            const fileBlob = new Blob([newValuesJSON], {
-                type: 'application/json'
-            });
-    
-            const fileToUpload = new File([fileBlob], "filename");
-    
-            await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "multipart/form-data"
-                },
-                body: fileToUpload,
-              });
-        }
+    // handlers for camera value change
+    const handleCameraValueChange = (event) => {
+        setCameraValue(event.target.value);
+    }
 
-            // handlers for gallery value
+    const handleCameraValueSubmit = async () => {
+        const existingValues = await fetchValuesFromS3();
+        existingValues.cameraValue = +cameraValue;
+        const newValuesJSON = JSON.stringify(existingValues);
+
+        const fileBlob = new Blob([newValuesJSON], {
+            type: 'application/json'
+        });
+
+        const fileToUpload = new File([fileBlob], "filename");
+
+        await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
+            method: "PUT",
+            headers: {
+                "Content-Type": "multipart/form-data"
+            },
+            body: fileToUpload,
+        });
+    }
+    
+    // handlers for gallery value
     const handleQuizValueChange = (event) => {
         setQuizValue(event.target.value);
     }
 
     const handleQuizValueSubmit = async () => {
-        // TODO: you could abstract some of this code out so you don't have so much repeating code
         const existingValues = await fetchValuesFromS3();
         existingValues.quizValue = +quizValue;
         const newValuesJSON = JSON.stringify(existingValues);

@@ -1,10 +1,7 @@
 import React from 'react';
 
 function Footer(props) {
-  // const isLoggedIn = props.user;
-  console.log(props.page);
-  console.log(props.user);
-  console.log(props.loggedIn);
+  // TODO: move scrolling text to footer
    if (props.loggedIn){
     return (
       <div id='footer' className='hidden'>
