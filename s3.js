@@ -2,7 +2,6 @@ import dotenv from 'dotenv'
 import aws from 'aws-sdk'
 import crypto from 'crypto'
 import { promisify } from "util"
-const randomBytes = promisify(crypto.randomBytes)
 
 dotenv.config()
 
@@ -19,8 +18,6 @@ const s3 = new aws.S3({
 })
 
 export async function generateUploadURL(keyName) {
-  // const rawBytes = await randomBytes(16)
-  // const imageName = rawBytes.toString('hex')
 
   const params = ({
     Bucket: bucketName,

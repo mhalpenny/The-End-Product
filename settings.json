@@ -1,3 +1,6 @@
 {
-    "galleryValue": 0.25
+    "galleryValue": 0.25,
+    "cameraValue": 0.30,
+    "quizValue": 0.15,
+    "audioValue": 0.20
 }

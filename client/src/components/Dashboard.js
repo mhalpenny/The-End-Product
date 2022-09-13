@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchValuesFromS3 } from '../assets/js/Utils';
 import setButton from '../assets/js/Buttons';
 
+
 function Dashboard(props) {
-    const [page, setPage] = useState('');
-    const [value, setValue] = useState('');
-    
-    // const handlePageChange = (event) => {
-    //     setPage(event.target.value);
-    // }
+  const [galleryValue, setGalleryValue] = useState(0);
+  const [cameraValue, setCameraValue] = useState(0);
+  const [quizValue, setQuizValue] = useState(0);
+  const [audioValue, setAudioValue] = useState(0);
+
+  const setValuesLocally = (valuesObject) => {
+    props.setGalleryValue(valuesObject.galleryValue);
+    props.setCameraValue(valuesObject.cameraValue);
+    props.setQuizValue(valuesObject.quizValue);
+    props.setAudioValue(valuesObject.audioValue);
+    // TODO: do all the other ones
+  }
+
+  useEffect(() => {
+      const fetchValuesFromS3AndSetLocally = async () => {
+          console.log('fetchValuesFromS3AndSetLocally on Dash');
+          const valuesObj = await fetchValuesFromS3();
+          setValuesLocally(valuesObj);
+      }
+
+  fetchValuesFromS3AndSetLocally();
+}, []);  
+
   return (
     <div className="dashboard">
       <br />
@@ -19,7 +38,7 @@ function Dashboard(props) {
         <button className="dashImgContainer" id='galleryImg' onClick={() => { props.setPageState('gallery'); setButton('mediaBtn', 'none');}}></button>
         <div>
         {/* <button className = 'dashButton' id='mediaBtn' onClick={() => { setPage('fileUpload'); setButton('fileBtn', 'mediaBtn');}}>Upload</button> */}
-        <span className='earnSpan'><p>You earn <b>$</b> 0.25</p> <img></img> <p></p></span>
+        <span className='earnSpan'><p>You earn <b>$</b> {props.galleryValue}</p> <img></img> <p></p></span>
         </div>
       </div>
       <br/>

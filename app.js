@@ -5,7 +5,7 @@ const app = express()
 const port = 8080
 
 //use the front folder for html: non-react version
-app.use(express.static('front'))
+// app.use(express.static('front'))
 // app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.get('/', async (req, res) => {

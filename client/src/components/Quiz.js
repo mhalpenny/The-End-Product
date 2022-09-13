@@ -65,10 +65,15 @@ function Quiz(props) {
 				<div className='score-section welcomeContainer'>
 					  <h1 className="welcome" id='quizText'>That's it!</h1>
 					  <button className = 'endButton' id='finishBtn' onClick={() => {
-						const toSet = props.value + 0.25;
+						    console.log('value: ' + props.value);
+							let numValue = props.value;
+							numValue = +numValue;
+							console.log('Qvalue: ' + props.quizValue);
+							let numQuizValue = props.quizValue;
+							numQuizValue = +numQuizValue;
+							props.setValuePrice(numValue + numQuizValue);
+							console.log('Addition: ' + props.value);
 						console.log('.........');
-						console.log(toSet)
-						props.setValuePrice(toSet);
 						props.setPageState('dashboard');
 					}}>Finish quiz</button>
 				</div>

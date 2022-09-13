@@ -39,8 +39,15 @@ function Gallery(props) {
       body: images[0],
     });
     
+    console.log('value: ' + props.value);
+    let numValue = props.value;
+    numValue = +numValue;
+    console.log('Gvalue: ' + props.galleryValue);
+    let numGalleryValue = props.galleryValue;
+    numGalleryValue = +numGalleryValue;
+    props.setValuePrice(numValue + numGalleryValue);
+    console.log('Addition: ' + props.value);
     props.setPageState('dashboard');
-    props.setValuePrice(props.value + 0.25);
   }
 
   const renderButton = () => {

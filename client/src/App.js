@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import Gallery from './components/Gallery';
 import Login from './components/Login';
 import PriceList from './components/PriceList';
@@ -10,19 +9,47 @@ import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Stylesheet from './components/Stylesheet';
-import { fetchValuesFromS3 } from './utils';
-
-// import './App.css';
+import { fetchValuesFromS3 } from './assets/js/Utils';
 
 function App() {
   // const [page, setPage] = useState('homepage');
   const [page, setPage] = useState(localStorage.getItem('page'));
   const [user, setUser] = useState(localStorage.getItem('user'));
   // TODO: convert the value to a number
+  const [galleryValue, setGalleryValue] = useState(localStorage.getItem('galleryValue'));
+  const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
+  const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
+  const [audioValue, setAudioValue] = useState(localStorage.getItem('audioValue'));
   const [value, setValue] = useState(localStorage.getItem('value'));
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('loggedIn'));
+  //convert to num
+  // setGalleryValue(+galleryValue);
+  // setCameraValue(+cameraValue);
+  // setQuizValue(+quizValue);
+  // setAudioValue(+audioValue);
+  // setValue(+value);
+
+  const setValuesLocally = (valuesObject) => {
+    setGalleryValue(valuesObject.galleryValue);
+    setCameraValue(valuesObject.cameraValue);
+    setQuizValue(valuesObject.quizValue);
+    setAudioValue(valuesObject.audioValue);
+    setValue(+value);
+    // TODO: do all the other ones
+}
+
+useEffect(() => {
+    const fetchValuesFromS3AndSetLocally = async () => {
+        console.log('fetchValuesFromS3AndSetLocally');
+        const valuesObj = await fetchValuesFromS3();
+        setValuesLocally(valuesObj);
+    }
+
+    fetchValuesFromS3AndSetLocally();
+  }, []);  
 
   //set local memory to hold state to avoid app refreshes
+  //clean these functions
   useEffect(() => {
     localStorage.setItem('page', page);
   }, [page]);
@@ -32,8 +59,24 @@ function App() {
   }, [user]);
 
   useEffect(() => {
-    localStorage.setItem('value', value);
+    localStorage.setItem('value', JSON.stringify(value));
   }, [value]);
+
+  useEffect(() => {
+    localStorage.setItem('galleryValue', JSON.stringify(galleryValue));
+  }, [galleryValue]);
+
+  useEffect(() => {
+    localStorage.setItem('cameraValue', JSON.stringify(cameraValue));
+  }, [cameraValue]);
+
+  useEffect(() => {
+    localStorage.setItem('quizValue', JSON.stringify(quizValue));
+  }, [quizValue]);
+
+  useEffect(() => {
+    localStorage.setItem('audioValue', JSON.stringify(audioValue));
+  }, [audioValue]);
 
   useEffect(() => {
     localStorage.setItem('loggedIn', loggedIn);
@@ -53,40 +96,25 @@ function App() {
   const renderDev = () => {
     return(
      <div>
-      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' '); setValue('0.00'); setLoggedIn(false)}}>Wipe</button>
+      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' '); setGalleryValue(0.00); setValue(0.00); setLoggedIn(false)}}>Wipe</button>
      </div>
     )
   }
-  
-  // const renderMenu = () => {
-  //   return(
-  //     <div>
-  //       {/* <Header initialUser={fullName} initialPrice={price}/> */}
-  //       {/* <button className = 'userButton hidden' id='loginBtn' onClick={() => { setPage('login'); setButton('quizBtn', 'loginBtn'); }}>Start</button> */}
-  //       <button className = 'endButton hidden' id='fileBtn' onClick={() => { setPage('dashboard'); setButton('mediaBtn', 'fileBtn');}}>Share</button>
-  //       <button className = 'endButton hidden' id='submitBtn' onClick={() => { setPage('fileUpload'); }}>Submit quiz</button>
-  //       {/* <button className = 'endButton' onClick={() => { setPage('priceList'); }}>price list</button> */}
-  //       <button className = 'endButton hidden' id='quizBtn' onClick={() => { setPage('dashboard'); setButton('mediaBtn', 'quizBtn');}}>Enter</button>
-  //       <button className = 'endButton' id='homeBtn' onClick={() => { setPage('login'); setButton('loginBtn', 'homeBtn');}}>Get started!</button>
-  //       {/* <button className = 'dashButton hidden' id='quizBtn' onClick={() => { setPage('quiz'); setButton('none', 'quizBtn');}}>Quiz</button> */}
-  //     </div>
-  //   )
-  // }
 
   const renderContent = () => {
     switch (page) {
       case 'dashboard':
-        return <Dashboard setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
+        return <Dashboard setPageState={setPage} setGalleryValue={setGalleryValue} setCameraValue={setCameraValue} setQuizValue={setQuizValue} setAudioValue={setAudioValue} galleryValue={galleryValue} value={value} user={user} />
       case 'login':
         return <Login setUsername={setUser} setValuePrice={setValue} setPageState={setPage} setNewLogin={setLoggedIn}/>
       case 'gallery':
-        return <Gallery setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
+        return <Gallery setPageState={setPage} setValuePrice={setValue} galleryValue={galleryValue} value={value} user={user} />
       case 'camera':
         return <Camera setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       case 'priceList':
         return <PriceList />
       case 'quiz':
-        return <Quiz setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
+        return <Quiz setPageState={setPage} setValuePrice={setValue} quizValue={quizValue} value={value} user={user} />
       case 'audio':
         return <Audio setPageState={setPage} setValuePrice={setValue} value={value} user={user} />
       default:
