@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Homepage(props) {
-  const [page, setPage] = useState('');
 
   return (
     <div className="Login">
@@ -12,6 +11,7 @@ function Homepage(props) {
       <br />
     </div>
   );
+  
 }
 
 export default Homepage;
