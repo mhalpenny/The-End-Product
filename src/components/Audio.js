@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Audio() {
   return (
@@ -11,7 +11,7 @@ function Audio() {
       <h1 className="welcome">Upload something</h1>
       </div>
       <br />
-      <img></img>
+      <img alt=''></img>
       <br/>
       <div id='mediaUploadContainer'>
       <form id="imageForm">
