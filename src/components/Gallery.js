@@ -22,6 +22,7 @@ function Gallery(props) {
     // final keyName could look like 2022-12-12/matt/image-50-0.25
     const keyName=`${props.user}/${Math.floor((Math.random() * 50))}-${props.value}`;
     console.log(keyName);
+    // const { url } = await fetch(`http://localhost:8080/s3Url?keyName=${keyName}`).then(res => res.json());
     const { url } = await fetch(`http://localhost:8080/s3Url?keyName=${keyName}`).then(res => res.json());
     setShowSellButton(true);
     setUploadUrl(url);

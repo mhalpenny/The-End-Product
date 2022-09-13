@@ -93,13 +93,17 @@ useEffect(() => {
       <Header user={user} value={value} page={page} loggedIn={loggedIn}/>
     )
   }
-  const renderDev = () => {
-    return(
-     <div>
-      <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' '); setGalleryValue(0.00); setValue(0.00); setLoggedIn(false)}}>Wipe</button>
-     </div>
-    )
+
+  if (process.env.NODE_ENV !== 'production') {
+    const renderDev = () => {
+      return(
+       <div>
+        <button className = 'backButton' id='backBtn' onClick={() => { setPage('homepage'); setUser(' '); setGalleryValue(0.00); setValue(0.00); setLoggedIn(false)}}>Wipe</button>
+       </div>
+      )
+    }
   }
+
 
   const renderContent = () => {
     switch (page) {
