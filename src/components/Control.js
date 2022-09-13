@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import setButton from '../assets/js/Buttons';
 import { fetchValuesFromS3 } from '../assets/js/Utils';
 
 function Control(props) {
@@ -14,7 +13,6 @@ function Control(props) {
         setCameraValue(valuesObject.cameraValue);
         setQuizValue(valuesObject.quizValue);
         setAudioValue(valuesObject.audioValue);
-        // TODO: do all the other ones
     }
 
     useEffect(() => {

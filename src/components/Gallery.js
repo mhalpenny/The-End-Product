@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import uploadMedia from '../assets/js/Upload';
 
 function Gallery(props) {
   const [showSellButton, setShowSellButton] = useState(false);
@@ -8,7 +7,6 @@ function Gallery(props) {
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
-
 
   const handleUploadClick = async () => {
     

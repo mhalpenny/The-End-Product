@@ -1,8 +1,7 @@
-import React, { useState, forceUpdate } from 'react';
-import Header from './Header'
+import React, { useState } from 'react';
 
 function Quiz(props) {
-	const [page, setPage] = useState('');
+	// const [page, setPage] = useState('');
 
 	const questions = [
 		{
