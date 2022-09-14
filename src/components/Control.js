@@ -152,6 +152,18 @@ function Control(props) {
                 },
                 body: fileToUpload,
               });
+
+            // const requestOptions = {
+            //     method: 'PUT',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(fileToUpload)
+            // };
+
+            // fetch('https://the-end-product.s3.amazonaws.com/settings.json', requestOptions)
+            // .then(response => response.json())
+            // .then(data => this.setState({ postId: data.id }));
+            //   }
+
         }
 
   return (

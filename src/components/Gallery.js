@@ -25,11 +25,12 @@ function Gallery(props) {
       setShowSellButton(true);
       setUploadUrl(url);
     } else{
-      const { url } = await fetch(`https://theendproduct.herokuapp.com/s3Url?keyName=${keyName}`).then(res => res.json());
+      const { url } = await fetch(`https://theendproduct.herokuapp.com/s3Url`).then(res => res.json());
       setShowSellButton(true);
       setUploadUrl(url);
     }
   }
+  // ?keyName=${keyName}
   
   //upload the media to s3 with the given link
   const handleSellClick = async () => {
