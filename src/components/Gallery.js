@@ -30,7 +30,7 @@ function Gallery(props) {
     //   setUploadUrl(url);
     // }
 
-    const { url } = await fetch(`https://theendproduct.herokuapp.com/s3Url?keyName=${keyName}`, {
+    const { url } = await fetch(`https://theendproduct.herokuapp.com/api/s3Url?keyName=${keyName}`, {
       crossDomain:true,
       method: 'GET',
       headers: {'Content-Type':'application/json'},
