@@ -16,6 +16,11 @@ marquee{
     color: white;
 }
 
+#cameraContainer{
+    width: 60%;
+    top: 100px;
+}
+
 .welcome{
     position: absolute;
     margin-top: 50%;
@@ -33,6 +38,14 @@ marquee{
     width: 100%;
     padding-left: 24%;
     padding-right: 20%;
+}
+
+.welcomeContainerCam{
+    width: 100%;
+    padding-left: 24%;
+    padding-right: 20%;
+    top: 50px;
+    text-align: center;
 }
 
 .endButton{
@@ -56,9 +69,84 @@ marquee{
     4px 4px 0px 2px black;
 }
 
+.endButtonCam{
+    position: absolute;
+    margin-top: 500px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
 .browseButton{
     position: absolute;
     margin-top: 250px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 70%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.camButton{
+    position: absolute;
+    margin-top: 300px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+#camPhotoBtn{
+    left: 10px;
+}
+
+#camSnapBtn{
+    left: 120px;
+}
+
+#camSwitchBtn{
+    right: 10px;
+}
+
+.browseButtonCam{
+    position: absolute;
+    margin-top: 50px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
@@ -157,6 +245,38 @@ input[type=file]::file-selector-button {
 .backButton{
     position: absolute;
     bottom: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+.cameraPage{
+    height: 0px;
+    overflow: hidden;
+}
+
+#previewContainer{
+    top:50px;
+    width: 60%;
+    left: 10%;
+}
+
+.backButtonCam{
+    position: absolute;
+    bottom: 100px;
     border-width: 2px;
     border-style: solid;
     border-color: black;

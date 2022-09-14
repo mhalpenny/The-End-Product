@@ -3,6 +3,7 @@ import Gallery from './components/Gallery';
 import Login from './components/Login';
 import Quiz from './components/Quiz';
 import Camera from './components/Camera';
+import CameraAccess from './components/CameraAccess';
 import Audio from './components/Audio';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
@@ -11,6 +12,7 @@ import RemoteStorage from './components/RemoteStorage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import "./assets/css/styles.css";
+
 
 function App() {
   const [page, setPage] = useState(localStorage.getItem('page'));
@@ -109,6 +111,13 @@ const updateVariables = () => {
                   cameraValue={galleryValue} 
                   value={value} 
                   user={user} />
+      // case 'camera':
+      //   return <Camera2
+      //             setPageState={setPage} 
+      //             setValuePrice={setValue} 
+      //             cameraValue={galleryValue} 
+      //             value={value} 
+      //             user={user} />
       case 'quiz':
         return <Quiz 
                   setPageState={setPage} 

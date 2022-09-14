@@ -35,7 +35,10 @@ function setButton(future, current){
       // var y = document.getElementById(future);
       // y.classList.remove("hidden");
 
-    }  else{
+    }  else if (current == 'camera'){
+      
+      
+    }else{
         var x = document.getElementById(future);
         x.classList.remove("hidden");
         var y = document.getElementById(current);
