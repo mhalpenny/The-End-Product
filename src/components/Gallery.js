@@ -34,8 +34,6 @@ function Gallery(props) {
       crossDomain:true,
       method: 'GET',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-      })
     })
       .then(response => response.json())
       setShowSellButton(true);
