@@ -4,11 +4,11 @@ function Audio(props) {
   const [showSellButton, setShowSellButton] = useState(0);
   const [uploadUrl, setUploadUrl] = useState('');
   let [audioBlob, setAudioBlob] = useState('');
-  const mediaRecorder;
+  // const mediaRecorder;
 
   // when promise returns, call setShowSellButton
   const handleStopClick = () => {
-    mediaRecorder.stop
+    // mediaRecorder.stop
     setShowSellButton(2);
     }
 
@@ -69,7 +69,7 @@ function Audio(props) {
   const handleAudioClick = () => {
     navigator.mediaDevices.getUserMedia({ audio: true })
     .then(stream => {
-      mediaRecorder = new MediaRecorder(stream);
+      const mediaRecorder = new MediaRecorder(stream);
       mediaRecorder.start();
   
       const audioChunks = [];
@@ -84,7 +84,8 @@ function Audio(props) {
   
       setTimeout(() => {
         mediaRecorder.stop();
-      }, 3000);
+        setShowSellButton(2);
+      }, 2000);
     });
     setShowSellButton(1);
   }
@@ -97,7 +98,7 @@ function Audio(props) {
         Cancel
       </button>
       <div className="welcomeContainer">
-        <h1 className="welcome">Upload something</h1>
+        <h1 className="welcome">Upload a 2 second memo</h1>
       </div>
       <br/>
       <img id='imgPreview' alt=''></img>
