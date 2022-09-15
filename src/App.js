@@ -57,7 +57,7 @@ const updateVariables = () => {
 
   const renderHeader = () => {
     return(
-      <Header user={user} value={value} page={page} loggedIn={loggedIn}/>
+      <Header user={user} value={value} page={page} loggedIn={loggedIn} setValue={setValue} />
     )
   }
 
@@ -84,7 +84,8 @@ const updateVariables = () => {
                   setGalleryValue={setGalleryValue} 
                   setCameraValue={setCameraValue} 
                   setQuizValue={setQuizValue} 
-                  setAudioValue={setAudioValue} 
+                  setAudioValue={setAudioValue}
+                  setValue={setValue}
                   galleryValue={galleryValue}
                   cameraValue={cameraValue} 
                   quizValue={quizValue} 
@@ -105,19 +106,12 @@ const updateVariables = () => {
                   value={value} 
                   user={user} />
       case 'camera':
-        return <Camera 
+        return <CameraAccess
                   setPageState={setPage} 
                   setValuePrice={setValue} 
-                  cameraValue={galleryValue} 
+                  cameraValue={cameraValue} 
                   value={value} 
                   user={user} />
-      // case 'camera':
-      //   return <Camera2
-      //             setPageState={setPage} 
-      //             setValuePrice={setValue} 
-      //             cameraValue={galleryValue} 
-      //             value={value} 
-      //             user={user} />
       case 'quiz':
         return <Quiz 
                   setPageState={setPage} 
@@ -129,7 +123,7 @@ const updateVariables = () => {
         return <Audio 
                   setPageState={setPage} 
                   setValuePrice={setValue} 
-                  audioValue={galleryValue} 
+                  audioValue={audioValue} 
                   value={value} 
                   user={user} />
       default:
@@ -139,7 +133,7 @@ const updateVariables = () => {
 
   const renderFooter = () => {
     return(
-      <Footer user={user} value={value} page={page} loggedIn={loggedIn}/>
+      <Footer user={user} value={value} page={page} loggedIn={loggedIn} scroll={scroll}/>
     )
   }
 

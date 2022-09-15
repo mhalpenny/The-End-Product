@@ -34,6 +34,12 @@ marquee{
     align-items: center;
 }
 
+#footer{
+    position: absolute;
+    overflow: hidden;
+    bottom:0;
+}
+
 .welcomeContainer{
     width: 100%;
     padding-left: 24%;
@@ -67,6 +73,13 @@ marquee{
     text-align: center;
     box-shadow: 4px 4px white, 
     4px 4px 0px 2px black;
+}
+
+#preview{
+    width: 150%;
+    height: auto;
+    margin-left: 22%;
+    margin-top: 200px;
 }
 
 .endButtonCam{
@@ -269,9 +282,11 @@ input[type=file]::file-selector-button {
 }
 
 #previewContainer{
-    top:50px;
-    width: 60%;
-    left: 10%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 50%;
+    z-index: 1000;
 }
 
 .backButtonCam{
@@ -293,6 +308,12 @@ input[type=file]::file-selector-button {
     text-align: center;
     /* box-shadow: 4px 4px white, 
     4px 4px 0px 2px black; */
+}
+
+canvas{
+    left: 0;
+    width: 500px;
+    top: 50px;
 }
 
 .quizTitle{
@@ -347,7 +368,7 @@ input[type=file]::file-selector-button {
 .quizContainer{
     width: 100%;
     margin-top: 20%;
-    border: black 1px solid;
+    /* border: black 1px solid; */
     padding-bottom: 10%;
 }
 

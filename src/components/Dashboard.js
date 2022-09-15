@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import setButton from '../assets/js/Buttons';
 
 function Dashboard(props) {
+  //convert all displayed values to have 2 decimal points
+  useEffect(() => {
+    let decimalFix = +props.value;
+    decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+    props.setValue(decimalFix);
+    });
+
+    useEffect(() => {
+      let decimalFix = +props.galleryValue;
+      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+      props.setGalleryValue(decimalFix);
+    });
+
+    useEffect(() => {
+      let decimalFix = +props.cameraValue;
+      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+      props.setCameraValue(decimalFix);
+    });
+
+    useEffect(() => {
+      let decimalFix = +props.quizValue;
+      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+      props.setQuizValue(decimalFix);
+    });
+
+    useEffect(() => {
+      let decimalFix = +props.audioValue;
+      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+      props.setAudioValue(decimalFix);
+    });
+  
+    //failsafe if value corrupts (not stores on server)
+    if (props.value === 'NaN'){
+      props.setValue(0.00);
+    }
 
   return (
     <div className="dashboard">

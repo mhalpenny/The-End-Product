@@ -4,7 +4,7 @@ import { fetchValuesFromS3 } from '../assets/js/Utils';
 function RemoteStorage(props) {
     const delay = 5;
     let count = 0;
-    console.log(count);
+    // console.log(count);
 
     //integrate received remote variables into local storage
     const setValuesLocally = (valuesObject) => {
@@ -18,11 +18,11 @@ function RemoteStorage(props) {
     //set a refresh timer for calling variable refreshes
     useEffect(() => {
         let refreshTimer = setTimeout(() => props.setRefresh(true), delay * 1000);
-        console.log('timer started');
+        // console.log('timer started');
         if (props.refresh === true){
             // resetTimer(true);
         } else{
-            console.log('timer is false');
+            // console.log('timer is false');
         }
         return () => {
             clearTimeout(refreshTimer);
@@ -33,13 +33,13 @@ function RemoteStorage(props) {
     useEffect(() => {
         if (props.refresh === true){
             count++;
-            console.log('timer triggered');
-            console.log(count);
+            // console.log('timer triggered');
+            // console.log(count);
             props.setRefresh(false)
 
             //calls s3 function which directly downloads the file
             const fetchValuesFromS3AndSetLocally = async () => {
-                console.log('fetchValuesFromS3AndSetLocally');
+                // console.log('fetchValuesFromS3AndSetLocally');
                 const valuesObj = await fetchValuesFromS3();
                 setValuesLocally(valuesObj);
             }

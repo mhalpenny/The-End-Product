@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Header(props) {
-//   console.log(props.page);
-//   console.log(props.user);
-//   console.log(props.loggedIn);
 
    if (props.loggedIn){
     return (

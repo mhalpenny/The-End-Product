@@ -4,8 +4,8 @@ function Footer(props) {
   // TODO: move scrolling text to footer
    if (props.loggedIn){
     return (
-      <div id='footer' className='hidden'>
-         
+      <div id='footer'>
+          <marquee className='dashScroll'></marquee>
       </div>
     )
    } else {

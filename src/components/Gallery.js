@@ -16,24 +16,23 @@ function Gallery(props) {
 
     // TODO: pass in media 'type' - e.g. images, etc
     // final keyName could look like 2022-12-12/matt/image-50-0.25
-    const keyName=`${props.user}/${Math.floor((Math.random() * 50))}-${props.value}`;
+    const keyName=`${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}`;
     console.log(keyName);
 
-    //depending on dev or build, connect to the back-end to address s3
-    if (process.env.NODE_ENV !== 'production') {
-      const { url } = await fetch(`http://localhost:8080/s3Url?keyName=${keyName}`).then(res => res.json());
+    //request an upload url from s3 through node/heroku
+    const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
+      crossDomain:true,
+      method: 'GET',
+      headers: {'Content-Type':'application/json'},
+    })
+      .then(response => response.json())
       setShowSellButton(true);
       setUploadUrl(url);
-    } else{
-        const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
-          crossDomain:true,
-          method: 'GET',
-          headers: {'Content-Type':'application/json'},
-        })
-          .then(response => response.json())
-          setShowSellButton(true);
-          setUploadUrl(url);
-      }
+
+      const imageUrl = url.split('?')[0];
+      // const image = document.createElement("img");
+      let image = document.getElementById("imgPreview");
+      image.src = imageUrl;  
     }
 
   //upload the media to s3 with the given link
