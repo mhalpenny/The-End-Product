@@ -20,7 +20,9 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('loggedIn'));
   const [refresh, setRefresh] = useState(false);
   const [scroll, setScroll] = useState('');
-  const [value, setValue] = useState(localStorage.getItem('value'));
+  const storedValue = localStorage.getItem('value');
+  const retainedValue = storedValue ? Number(storedValue) : 0.00
+  const [value, setValue] = useState(retainedValue);
   const [galleryValue, setGalleryValue] = useState(localStorage.getItem('galleryValue'));
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
@@ -29,7 +31,7 @@ function App() {
 const updateVariables = () => {
   return(
     <div>
-        <LocalStorage 
+      <LocalStorage 
         user={user} 
         value={value} 
         page={page} 
@@ -137,6 +139,14 @@ const updateVariables = () => {
     )
   }
 
+  const renderMarquee = () => {
+    return (
+      <div className="marqueeContainer">
+        <marquee className='dashScroll'></marquee>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       {updateVariables()}
@@ -144,6 +154,7 @@ const updateVariables = () => {
       {renderContent()}
       {renderDev()}
       {renderFooter()}
+      {/* {renderMarquee()} */}
     </div>
   );
 }

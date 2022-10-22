@@ -8,11 +8,12 @@ function RemoteStorage(props) {
 
     //integrate received remote variables into local storage
     const setValuesLocally = (valuesObject) => {
+      // console.log(valuesObject)
         props.setGalleryValue(valuesObject.galleryValue);
         props.setCameraValue(valuesObject.cameraValue);
         props.setQuizValue(valuesObject.quizValue);
         props.setAudioValue(valuesObject.audioValue);
-        props.setValue(+props.value);
+        // props.setValue(+props.value);
     }
 
     //set a refresh timer for calling variable refreshes

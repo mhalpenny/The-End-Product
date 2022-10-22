@@ -53,7 +53,6 @@ function Dashboard(props) {
         </div>
       </div>
       <br/>
-      <marquee className='dashScroll'></marquee>
       <br/>
       <div className="dashContainer" id='dashVideo'>
         <p className='dashTitle'>Share a video!</p>
@@ -67,7 +66,6 @@ function Dashboard(props) {
         </div>
       </div>
       <br/>
-      <marquee className='dashScroll'></marquee>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
         <p className='dashTitle'>Take the quiz!</p>
@@ -81,7 +79,6 @@ function Dashboard(props) {
         </div>
       </div>
       <br/>
-      <marquee className='dashScroll'></marquee>
       <br/>
      <div className="dashContainer" id='dashAudio'>
         <p className='dashTitle'>Share an audio recording!</p>
@@ -95,7 +92,7 @@ function Dashboard(props) {
         </div>
       </div>
       <br/>
-      <marquee className='dashScroll'></marquee>
+      
       <br/>
     </div>
   );

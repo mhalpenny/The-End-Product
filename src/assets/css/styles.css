@@ -2,7 +2,8 @@
 
 #header{
     height: 60px;
-    position: relative;
+    position: sticky;
+    position: -webkit-sticky;
     background-color: white;
     width: 100%;
     top: 0;
@@ -478,6 +479,11 @@ button:hover{
     font-family: Inter, sans-serif;
     font-weight: 300;
     font-style: oblique;
+}
+
+.marqueeContainer{
+  position: sticky;
+  bottom: 0;
 }
 
 .dashContainer p{
