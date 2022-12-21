@@ -15,26 +15,28 @@
         localStorage.setItem('loggedIn', props.loggedIn);
     }, [props.loggedIn]);
 
-    //certain states require stringfication to transfer properly
-    //this happens automatically in localstorage but not the way we want
     useEffect(() => {
-        localStorage.setItem('value', JSON.stringify(props.value));
+      console.log('localstorage value')
+      console.log(props.value)
+      // debugger;
+        const valueToStore = props.value ? props.value : '0.0';
+        localStorage.setItem('value', valueToStore);
     }, [props.value]);
 
     useEffect(() => {
-        localStorage.setItem('galleryValue', JSON.stringify(props.galleryValue));
+        localStorage.setItem('galleryValue', props.galleryValue);
     }, [props.galleryValue]);
 
     useEffect(() => {
-        localStorage.setItem('cameraValue', JSON.stringify(props.cameraValue));
+        localStorage.setItem('cameraValue', props.cameraValue);
     }, [props.cameraValue]);
 
     useEffect(() => {
-        localStorage.setItem('quizValue', JSON.stringify(props.quizValue));
+        localStorage.setItem('quizValue', props.quizValue);
     }, [props.quizValue]);
 
     useEffect(() => {
-        localStorage.setItem('audioValue', JSON.stringify(props.audioValue));
+        localStorage.setItem('audioValue', props.audioValue);
     }, [props.audioValue]);
 
     return (
