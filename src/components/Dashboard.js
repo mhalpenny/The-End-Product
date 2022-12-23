@@ -54,6 +54,19 @@ function Dashboard(props) {
       </div>
       <br/>
       <br/>
+      <div className="dashContainer" id='dashQuiz'>
+        <p className='dashTitle'>Take quiz A!</p>
+        <button className="dashImgContainer" id='quizImg' 
+        onClick={() => { props.setPageState('quiz');}}>
+        </button>
+        <div>
+          <span className='earnSpan'>
+            <p>You earn <b>$</b> {props.quizValue}</p> 
+          </span>
+        </div>
+      </div>
+      <br/>
+      <br/>
       <div className="dashContainer" id='dashVideo'>
         <p className='dashTitle'>Share a video!</p>
         <button className="dashImgContainer" id='camImg' 
@@ -68,9 +81,9 @@ function Dashboard(props) {
       <br/>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p className='dashTitle'>Take the quiz!</p>
+        <p className='dashTitle'>Take quiz B!</p>
         <button className="dashImgContainer" id='quizImg' 
-        onClick={() => { props.setPageState('quiz');}}>
+        onClick={() => { props.setPageState('quizB');}}>
         </button>
         <div>
           <span className='earnSpan'>
@@ -79,20 +92,6 @@ function Dashboard(props) {
         </div>
       </div>
       <br/>
-      <br/>
-     <div className="dashContainer" id='dashAudio'>
-        <p className='dashTitle'>Share an audio recording!</p>
-        <button className="dashImgContainer" id='audioImg' 
-        onClick={() => { props.setPageState('audio');}}>
-        </button>
-        <div>
-          <span className='earnSpan'>
-          <p>You earn <b>$</b> {props.audioValue}</p> 
-         </span>
-        </div>
-      </div>
-      <br/>
-      
       <br/>
     </div>
   );

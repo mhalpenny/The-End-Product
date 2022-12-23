@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Gallery from './components/Gallery';
 import Login from './components/Login';
 import Quiz from './components/Quiz';
-import Camera from './components/Camera';
+import QuizB from './components/QuizB';
+// import Camera from './components/Camera';
 import CameraAccess from './components/CameraAccess';
 import Audio from './components/Audio';
 import Homepage from './components/Homepage';
@@ -116,6 +117,13 @@ const updateVariables = () => {
                   user={user} />
       case 'quiz':
         return <Quiz 
+                  setPageState={setPage} 
+                  setValuePrice={setValue} 
+                  quizValue={quizValue} 
+                  value={value} 
+                  user={user} />
+      case 'quizB':
+        return <QuizB 
                   setPageState={setPage} 
                   setValuePrice={setValue} 
                   quizValue={quizValue} 
