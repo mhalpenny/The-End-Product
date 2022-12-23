@@ -45,6 +45,7 @@ function Quiz(props) {
 	const [score, setScore] = useState(0);
 
 	//modified from a score based quiz, TODO: remove score
+	//modified from a score based quiz, TODO: remove score
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
@@ -66,15 +67,15 @@ function Quiz(props) {
 					{/* and converted to a state based process */}
 					<button className = 'endButton' id='finishBtn' 
 						onClick={() => {
-							console.log('value: ' + props.value);
+							// console.log('value: ' + props.value);
 							let numValue = props.value;
 							numValue = +numValue;
-							console.log('Qvalue: ' + props.quizValue);
+							// console.log('Qvalue: ' + props.quizValue);
 							let numQuizValue = props.quizValue;
 							numQuizValue = +numQuizValue;
 							props.setValuePrice(numValue + numQuizValue);
-							console.log('Addition: ' + props.value);
-							console.log('.........');
+							// console.log('Addition: ' + props.value);
+							// console.log('.........');
 							props.setPageState('dashboard');
 						}}>
 					Finish quiz
@@ -92,6 +93,17 @@ function Quiz(props) {
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<input type="text" id="userField" required/>
+					{/* modify css */}
+					<button className = 'userButton' id='loginBtn' 
+						onClick={() => { 
+						// props.setUsername(user); 
+						// props.setPageState('dashboard'); 
+						// setButton('none', 'loginBtn'); 
+						// props.setNewLogin(true); 
+						// props.setValuePrice('0.00');
+						}}>
+						Start
+					</button>
 				</>
 			)}
 		</div>
