@@ -28,6 +28,7 @@ function App() {
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
   const [audioValue, setAudioValue] = useState(localStorage.getItem('audioValue'));
+  const [marqueeValue, setMarqueeValue] = useState(localStorage.getItem('marqueeValue'));
   
 const updateVariables = () => {
   return(
@@ -40,7 +41,8 @@ const updateVariables = () => {
         galleryValue={galleryValue}
         cameraValue={cameraValue}
         quizValue={quizValue}
-        audioValue={audioValue}>
+        audioValue={audioValue}
+        marqueeValue={marqueeValue}>
         </LocalStorage>
         <RemoteStorage 
         refresh={refresh}
@@ -52,6 +54,7 @@ const updateVariables = () => {
         setCameraValue={setCameraValue}
         setQuizValue={setQuizValue}
         setAudioValue={setAudioValue}
+        setMarqueeValue={setMarqueeValue}
         setScroll={setScroll}>
         </RemoteStorage>
     </div>
@@ -60,7 +63,11 @@ const updateVariables = () => {
 
   const renderHeader = () => {
     return(
-      <Header user={user} value={value} page={page} loggedIn={loggedIn} setValue={setValue} />
+      <Header user={user} 
+      value={value} 
+      page={page} 
+      loggedIn={loggedIn} 
+      setValue={setValue} />
     )
   }
 
@@ -143,15 +150,14 @@ const updateVariables = () => {
 
   const renderFooter = () => {
     return(
-      <Footer user={user} value={value} page={page} loggedIn={loggedIn} scroll={scroll}/>
-    )
-  }
-
-  const renderMarquee = () => {
-    return (
-      <div className="marqueeContainer">
-        <marquee className='dashScroll'></marquee>
-      </div>
+      <Footer 
+      user={user} 
+      value={value} 
+      page={page} 
+      loggedIn={loggedIn} 
+      scroll={scroll} 
+      marqueeValue={marqueeValue} 
+      setMarqueeValue={setMarqueeValue}/>
     )
   }
 
@@ -162,7 +168,6 @@ const updateVariables = () => {
       {renderContent()}
       {renderDev()}
       {renderFooter()}
-      {/* {renderMarquee()} */}
     </div>
   );
 }

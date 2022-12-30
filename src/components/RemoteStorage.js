@@ -12,7 +12,8 @@ function RemoteStorage(props) {
         props.setGalleryValue(valuesObject.galleryValue);
         props.setCameraValue(valuesObject.cameraValue);
         props.setQuizValue(valuesObject.quizValue);
-        props.setAudioValue(valuesObject.audioValue);
+        // props.setAudioValue(valuesObject.audioValue);
+        props.setMarqueeValue(valuesObject.marqueeValue);
         // props.setValue(+props.value);
     }
 

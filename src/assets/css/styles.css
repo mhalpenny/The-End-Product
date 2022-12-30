@@ -609,7 +609,11 @@ button:hover{
     margin-top: 450px;
 }
 
-#newAudioBtn{
+/* #newAudioBtn{
+    margin-top: 600px;
+} */
+
+#newMarqueeBtn{
     margin-top: 600px;
 }
 
@@ -646,7 +650,11 @@ button:hover{
     margin-top: 400px;
 }
 
-#valueFieldAudio{
+/* #valueFieldAudio{
+    margin-top: 550px;
+} */
+
+#valueFieldMarquee{
     margin-top: 550px;
 }
 
@@ -684,8 +692,13 @@ button:hover{
     margin-top: 350px;
 }
 
-#displayAudioBtn{
+/* #displayAudioBtn{
+    margin-top: 500px;
+} */
+
+#displayMarqueeBtn{
     margin-top: 500px;
 }
+
 
 

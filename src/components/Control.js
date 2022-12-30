@@ -9,6 +9,7 @@ function Control(props) {
     const [cameraValue, setCameraValue] = useState(0);
     const [quizValue, setQuizValue] = useState(0);
     const [audioValue, setAudioValue] = useState(0);
+    const [marqueeValue, setMarqueeValue] = useState(0);
 
     //take the properties of JSON file and save them here for displaying
     const setValuesLocally = (valuesObject) => {
@@ -16,6 +17,7 @@ function Control(props) {
         setCameraValue(valuesObject.cameraValue);
         setQuizValue(valuesObject.quizValue);
         setAudioValue(valuesObject.audioValue);
+        setMarqueeValue(valuesObject.marqueeValue);
     }
 
     //fetch the JSON states from s3
@@ -152,19 +154,33 @@ function Control(props) {
                 },
                 body: fileToUpload,
               });
-
-            // const requestOptions = {
-            //     method: 'PUT',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(fileToUpload)
-            // };
-
-            // fetch('https://the-end-product.s3.amazonaws.com/settings.json', requestOptions)
-            // .then(response => response.json())
-            // .then(data => this.setState({ postId: data.id }));
-            //   }
-
         }
+         // handlers for marquee value
+         const handleMarqueeValueChange = (event) => {
+            setMarqueeValue(event.target.value);
+        }
+    
+        const handleMarqueeValueSubmit = async () => {
+            // TODO: you could abstract some of this code out so you don't have so much repeating code
+            const existingValues = await fetchValuesFromS3();
+            existingValues.marqueeValue = +marqueeValue;
+            const newValuesJSON = JSON.stringify(existingValues);
+    
+            const fileBlob = new Blob([newValuesJSON], {
+                type: 'application/json'
+            });
+    
+            const fileToUpload = new File([fileBlob], "filename");
+    
+            await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                },
+                body: fileToUpload,
+              });
+        }
+
 
   return (
     <div>
@@ -184,9 +200,14 @@ function Control(props) {
         <button className='endButton' id='newQuizBtn' type="submit" onClick={handleQuizValueSubmit}>Update price</button>
         <br/>
         <br/>
-        <button className='displayButton' id='displayAudioBtn' type="button" disabled>Audio: ${audioValue}</button>
+        {/* <button className='displayButton' id='displayAudioBtn' type="button" disabled>Audio: ${audioValue}</button>
         <input type="text" className='valueField' id="valueFieldAudio" value={audioValue} onChange={handleAudioValueChange} required/>
-        <button className='endButton' id='newAudioBtn' type="submit" onClick={handleAudioValueSubmit}>Update price</button>
+        <button className='endButton' id='newAudioBtn' type="submit" onClick={handleAudioValueSubmit}>Update price</button> */}
+        <br/>
+        <br/>
+        <button className='displayButton' id='displayMarqueeBtn' type="button" disabled>Marquee: ${marqueeValue}</button>
+        <input type="text" className='valueField' id="valueFieldMarquee" value={marqueeValue} onChange={handleMarqueeValueChange} required/>
+        <button className='endButton' id='newMarqueeBtn' type="submit" onClick={handleMarqueeValueSubmit}>Update value</button>
     </div>
     );
 }
