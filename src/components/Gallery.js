@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 
 function Gallery(props) {
+/*===================================================
+=                 VARIABLES                         =
+====================================================*/
   const [showSellButton, setShowSellButton] = useState(false);
   const [uploadUrl, setUploadUrl] = useState('');
   const [images, setImages] = useState([]);
   
+/*====================================================
+=                 IMAGE SELECT                       =
+====================================================*/
   //function to create image upload preview
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
 
+/*====================================================
+=                 UPLOAD CLICK                       =
+====================================================*/
   // when promise returns, call setShowSellButton
   const handleUploadClick = async () => {
     console.log('upload');
@@ -35,6 +44,9 @@ function Gallery(props) {
       image.src = imageUrl;  
     }
 
+/*====================================================
+=                 SELL CLICK                         =
+====================================================*/
   //upload the media to s3 with the given link
   const handleSellClick = async () => {
     console.log('sell');
@@ -64,6 +76,9 @@ function Gallery(props) {
     props.setPageState('dashboard');
   }
 
+/*====================================================
+=                 BUTTON SWAP                        =
+=====================================================*/
   const renderButton = () => {
     if (showSellButton === true) {
       return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
@@ -73,6 +88,9 @@ function Gallery(props) {
     }
   }
 
+/*====================================================
+=                 RENDER                             =
+=====================================================*/
   return (
     <div className="cameraPage">
       {renderButton()}
