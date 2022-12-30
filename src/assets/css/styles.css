@@ -5,6 +5,8 @@
     display: none;
 }
 
+/* cordova test */
+
 /*----------  Buttons  ----------*/
 button:hover{
     cursor: crosshair;
