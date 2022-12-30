@@ -163,7 +163,7 @@ function Control(props) {
         const handleMarqueeValueSubmit = async () => {
             // TODO: you could abstract some of this code out so you don't have so much repeating code
             const existingValues = await fetchValuesFromS3();
-            existingValues.marqueeValue = +marqueeValue;
+            existingValues.marqueeValue = marqueeValue;
             const newValuesJSON = JSON.stringify(existingValues);
     
             const fileBlob = new Blob([newValuesJSON], {
@@ -205,7 +205,7 @@ function Control(props) {
         <button className='endButton' id='newAudioBtn' type="submit" onClick={handleAudioValueSubmit}>Update price</button> */}
         <br/>
         <br/>
-        <button className='displayButton' id='displayMarqueeBtn' type="button" disabled>Marquee: ${marqueeValue}</button>
+        <button className='displayButton' id='displayMarqueeBtn' type="button" disabled>Marquee: {marqueeValue}</button>
         <input type="text" className='valueField' id="valueFieldMarquee" value={marqueeValue} onChange={handleMarqueeValueChange} required/>
         <button className='endButton' id='newMarqueeBtn' type="submit" onClick={handleMarqueeValueSubmit}>Update value</button>
     </div>

@@ -5,7 +5,7 @@ function Footer(props) {
    if (props.loggedIn){
     return (
       <div className="marqueeContainer">
-        <marquee className='dashScroll'>${props.marqueeValue}</marquee>
+        <marquee className='dashScroll'>Message: {props.marqueeValue}</marquee>
       </div>
     )
    } else {
