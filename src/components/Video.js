@@ -106,7 +106,7 @@ function Video(props) {
       <br/>
       <div id='mediaUploadContainer'>
         <form id="imageForm">
-        <input id="imageInput" type="file" className = 'browseButton' accept="image/*" 
+        <input id="imageInput" type="file" className = 'browseButton' accept="video/*" 
           onChange={onImageChange}/>
         </form>
       </div>
