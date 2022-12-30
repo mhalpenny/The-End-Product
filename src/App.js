@@ -167,7 +167,7 @@ const updateVariables = () => {
       {renderHeader()}
       {renderContent()}
       {renderDev()}
-      {renderFooter()}
+      {/* {renderFooter()} */}
     </div>
   );
 }

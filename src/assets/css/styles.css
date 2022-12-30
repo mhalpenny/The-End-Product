@@ -1,58 +1,13 @@
-
-
-#header{
-    height: 60px;
-    position: sticky;
-    position: -webkit-sticky;
-    background-color: white;
-    width: 100%;
-    top: 0;
-    margin-top : 0;
-    z-index: 999;
-
+/*=============================================
+=                 ~GLOBAL                     =
+=============================================*/
+.hidden{
+    display: none;
 }
 
-marquee{
-    background-color: black;
-    color: white;
-}
-
-#cameraContainer{
-    width: 60%;
-    top: 100px;
-}
-
-.welcome{
-    position: absolute;
-    margin-top: 50%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
-    font-style: normal;
-    display: flex;
-    align-items: center;
-}
-
-#footer{
-    position: absolute;
-    overflow: hidden;
-    bottom:0;
-}
-
-.welcomeContainer{
-    width: 100%;
-    padding-left: 24%;
-    padding-right: 20%;
-}
-
-.welcomeContainerCam{
-    width: 100%;
-    padding-left: 24%;
-    padding-right: 20%;
-    top: 50px;
-    text-align: center;
+/*----------  Buttons  ----------*/
+button:hover{
+    cursor: crosshair;
 }
 
 .endButton{
@@ -76,12 +31,347 @@ marquee{
     4px 4px 0px 2px black;
 }
 
-#preview{
-    width: 150%;
-    height: auto;
-    margin-left: 22%;
-    margin-top: 200px;
+.userButton{
+    position: absolute;
+    margin-top: 600px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 50%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
 }
+
+.backButton{
+    position: absolute;
+    bottom: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+
+/*=============================================
+=                 ~HEADER                     =
+=============================================*/
+#header{
+    height: 60px;
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    margin-top : 0;
+    z-index: 999;
+
+}
+
+.marqueeContainer{
+    position: sticky;
+    bottom: 0;
+  }
+
+  .helloContainer{
+    position: relative;
+    width: 100%;
+    top: 0;
+    margin-top : 0;
+}
+
+.hello{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    line-height: 20px;
+    position: relative;
+    float: left;
+    margin-left: 2%;
+    top: 27px;
+}
+
+.dollar{
+    font-size: 18px;
+}
+
+#headPrice{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    position: relative;
+    font-size: 18px;
+    float: right;
+    right: 20px;
+    margin-left: 2%;
+    top: 30px;
+}
+
+#headSpan{
+    width: 80%;
+}
+
+
+/*=============================================
+=                 ~FOOTER                     =
+=============================================*/
+#footer{
+    position: absolute;
+    overflow: hidden;
+    bottom:0;
+}
+
+marquee{
+    background-color: black;
+    color: white;
+}
+
+/*=============================================
+=                 ~LOGIN                      =
+=============================================*/
+.welcome{
+    position: absolute;
+    margin-top: 50%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+}
+
+.welcomeContainer{
+    width: 100%;
+    padding-left: 24%;
+    padding-right: 20%;
+}
+
+.welcomeContainerCam{
+    width: 100%;
+    padding-left: 24%;
+    padding-right: 20%;
+    top: 50px;
+    text-align: center;
+}
+
+#userField{
+    position: absolute;
+    margin-top: 385px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+
+/*=============================================
+=                 ~DASHBOARD                  =
+=============================================*/
+.dashTitle{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    /* font-weight: bold; */
+
+}
+
+.dashContainer{
+    width: 100%;
+    height: 400px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    /* background-color: black;
+    color: white; */
+}
+
+.dashContainer p{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 3%;
+}
+
+.dashScroll{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-style: oblique;
+}
+
+.earnSpan{
+    width: 50%;
+    float:right;
+}
+
+/*----------  Buttons  ----------*/
+
+.dashButton{
+    position: absolute;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 25%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-left: 70%;
+    margin-top: 2%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+/*----------  Icons  ----------*/
+
+.dashImgContainer{
+    width:300px;
+    height: 300px;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+.icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+.cameraIcon{
+    background-image: url(../imgs/camera.png);
+    border: 0;
+}
+
+.albumIcon{
+    background-image: url(../imgs/album.png);
+}
+
+#galleryImg{
+    background-image: url(../imgs/gallery.png);
+    
+    /* filter: invert(1); */
+}
+
+#userImg{
+    background-image: url(../imgs/user.png);
+    float: left;
+    position: relative;
+    top: 25px;
+    margin-left: 3%;
+    /* filter: invert(1); */
+}
+
+#dollarImg{
+    background-image: url(../imgs/dollar.png);
+    position: relative;
+    top: 0px;
+    /* margin-left: 10%; */
+    /* filter: invert(1); */
+}
+
+#camImg{
+    background-image: url(../imgs/cam.png);
+    /* filter: invert(1); */
+}
+
+#quizImg{
+    background-image: url(../imgs/quiz.png);
+}
+
+#audioImg{
+    background-image: url(../imgs/audio.png);
+}
+
+
+/* .dashImgContainer{
+    width:300px;
+    height: 300px;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+} */
+
+/*=============================================
+=                 ~CAMERA                     =
+=============================================*/
+#cameraContainer{
+    width: 60%;
+    top: 100px;
+}
+
+.cameraPage{
+    height: 0px;
+    overflow: hidden;
+}
+
+#mediaUploadContainer{
+    width: 100%;
+    height: auto;
+}
+
+/*----------  Buttons  ----------*/
 
 .endButtonCam{
     position: absolute;
@@ -179,13 +469,33 @@ marquee{
     4px 4px 0px 2px black;
 }
 
-#finishBtn{
-    left: 10px;
+.backButtonCam{
+    position: absolute;
+    bottom: 100px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
 }
 
-#quizText{
-    margin-left: 18%;
-    top: 100px;
+/*----------  Input  ----------*/
+
+#imageInput{
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
 }
 
 input[type=file]::file-selector-button {
@@ -214,73 +524,7 @@ input[type=file]::file-selector-button {
     border: 0;
   }
 
-#userField{
-    position: absolute;
-    margin-top: 385px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 40%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: 20%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black;
-}
-
-.userButton{
-    position: absolute;
-    margin-top: 600px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-left: 50%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
-}
-
-.backButton{
-    position: absolute;
-    bottom: 50px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-left: 10%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
-}
-
-.cameraPage{
-    height: 0px;
-    overflow: hidden;
-}
+  /*----------  Upload ----------*/
 
 #previewContainer{
     position: absolute;
@@ -290,31 +534,51 @@ input[type=file]::file-selector-button {
     z-index: 1000;
 }
 
-.backButtonCam{
-    position: absolute;
-    bottom: 100px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-left: 10%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
+#preview{
+    width: 150%;
+    height: auto;
+    margin-left: 22%;
+    margin-top: 200px;
 }
 
 canvas{
     left: 0;
     width: 500px;
     top: 50px;
+}
+
+
+/*=============================================
+=                 ~VIDEO                      =
+=============================================*/
+
+
+
+/*=============================================
+=                 ~QUIZ                       =
+=============================================*/
+.quizContainer{
+    width: 100%;
+    margin-top: 20%;
+    /* border: black 1px solid; */
+    padding-bottom: 10%;
+}
+
+.quiz{
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+}
+
+#quizText{
+    margin-left: 18%;
+    top: 100px;
+}
+
+#finishBtn{
+    left: 10px;
 }
 
 .quizTitle{
@@ -366,297 +630,17 @@ canvas{
     4px 4px 0px 2px black; */
 }
 
-.quizContainer{
-    width: 100%;
-    margin-top: 20%;
-    /* border: black 1px solid; */
-    padding-bottom: 10%;
-}
-
-.dashButton{
-    position: absolute;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 25%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 4%;
-    padding-right: 4%;
-    margin-left: 70%;
-    margin-top: 2%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
-}
-
 #nuQuizBtn{
     margin-left: 30%;
 }
 
-button:hover{
-    cursor: crosshair;
-}
 
-.earnSpan{
-    width: 50%;
-    float:right;
-}
-
-.hidden{
-    display: none;
-}
-
-.dashImgContainer{
-    width:300px;
-    height: 300px;
-    margin-left: 10%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background-repeat:no-repeat;
-    background-position: center center; 
-    background-size: cover;
-    border: none;
-    background-color: white;
-    outline: none;
-    border: 0;
-}
-
-.icon{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-repeat:no-repeat;
-    background-position: center center; 
-    background-size: cover;
-    border: none;
-    background-color: white;
-    outline: none;
-    border: 0;
-}
+/*=============================================
+=                 ~CONTROLBOARD               =
+=============================================*/
 
 
-/* .dashImgContainer{
-    width:300px;
-    height: 300px;
-    margin-left: 10%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background-repeat:no-repeat;
-    background-position: center center; 
-    background-size: cover;
-    border: none;
-    background-color: white;
-    outline: none;
-    border: 0;
-} */
-
-.dashTitle{
-    font-size: 20px;
-    text-align: center;
-    width: 100%;
-    /* font-weight: bold; */
-
-}
-
-.dashContainer{
-    width: 100%;
-    height: 400px;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    /* background-color: black;
-    color: white; */
-
-}
-
-.dashScroll{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-style: oblique;
-}
-
-.marqueeContainer{
-  position: sticky;
-  bottom: 0;
-}
-
-.dashContainer p{
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    line-height: 20px;
-    padding: 3%;
-}
-
-.helloContainer{
-    position: relative;
-    width: 100%;
-    top: 0;
-    margin-top : 0;
-}
-
-.hello{
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: left;
-    line-height: 20px;
-    position: relative;
-    float: left;
-    margin-left: 2%;
-    top: 27px;
-}
-
-#mediaUploadContainer{
-    width: 100%;
-    height: auto;
-}
-
-.cameraIcon{
-    background-image: url(../imgs/camera.png);
-    border: 0;
-}
-
-.albumIcon{
-    background-image: url(../imgs/album.png);
-}
-
-#galleryImg{
-    background-image: url(../imgs/gallery.png);
-    
-    /* filter: invert(1); */
-}
-
-#userImg{
-    background-image: url(../imgs/user.png);
-    float: left;
-    position: relative;
-    top: 25px;
-    margin-left: 3%;
-    /* filter: invert(1); */
-}
-
-
-#dollarImg{
-    background-image: url(../imgs/dollar.png);
-    position: relative;
-    top: 0px;
-    /* margin-left: 10%; */
-    /* filter: invert(1); */
-}
-
-#camImg{
-    background-image: url(../imgs/cam.png);
-    /* filter: invert(1); */
-}
-
-#quizImg{
-    background-image: url(../imgs/quiz.png);
-}
-
-#audioImg{
-    background-image: url(../imgs/audio.png);
-}
-
-
-.quiz{
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    text-align: left;
-    line-height: 20px;
-}
-
-.dollar{
-    font-size: 18px;
-}
-
-#headPrice{
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    position: relative;
-    font-size: 18px;
-    float: right;
-    right: 20px;
-    margin-left: 2%;
-    top: 30px;
-}
-
-#headSpan{
-    width: 80%;
-}
-
-#imageInput{
-    background: transparent;
-    color: #000;
-    border: 1px solid #000;
-}
-
-#newGalleryBtn{
-    margin-top: 150px;
-}
-
-#newCameraBtn{
-    margin-top: 300px;
-}
-
-#newQuizBtn{
-    margin-top: 450px;
-}
-
-/* #newAudioBtn{
-    margin-top: 600px;
-} */
-
-#newMarqueeBtn{
-    margin-top: 600px;
-}
-
-.valueField{
-    position: absolute;
-    margin-top: 385px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 40%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: 20%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
-}
-
-#valueFieldGallery{
-    margin-top: 100px;
-}
-
-#valueFieldCamera{
-    margin-top: 250px;
-}
-
-#valueFieldQuiz{
-    margin-top: 400px;
-}
-
-/* #valueFieldAudio{
-    margin-top: 550px;
-} */
-
-#valueFieldMarquee{
-    margin-top: 550px;
-}
+/*----------  Buttons ----------*/
 
 .displayButton{
     position: absolute;
@@ -692,13 +676,61 @@ button:hover{
     margin-top: 350px;
 }
 
-/* #displayAudioBtn{
-    margin-top: 500px;
-} */
-
 #displayMarqueeBtn{
     margin-top: 500px;
 }
 
+#newGalleryBtn{
+    margin-top: 150px;
+}
 
+#newCameraBtn{
+    margin-top: 300px;
+}
 
+#newQuizBtn{
+    margin-top: 450px;
+}
+
+#newMarqueeBtn{
+    margin-top: 600px;
+}
+
+/*----------  Input ----------*/
+
+.valueField{
+    position: absolute;
+    margin-top: 385px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
+#valueFieldGallery{
+    margin-top: 100px;
+}
+
+#valueFieldCamera{
+    margin-top: 250px;
+}
+
+#valueFieldQuiz{
+    margin-top: 400px;
+}
+
+#valueFieldMarquee{
+    margin-top: 550px;
+}
