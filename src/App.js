@@ -4,10 +4,11 @@ import Login from './components/Login';
 import Quiz from './components/Quiz';
 import QuizB from './components/QuizB';
 // import Camera from './components/Camera';
-import CameraAccess from './components/CameraAccess';
-import Audio from './components/Audio';
+// import CameraAccess from './components/CameraAccess';
+// import Audio from './components/Audio';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
+import Video from './components/Video';
 import LocalStorage from './components/LocalStorage';
 import RemoteStorage from './components/RemoteStorage';
 import Header from './components/Header';
@@ -27,7 +28,7 @@ function App() {
   const [galleryValue, setGalleryValue] = useState(localStorage.getItem('galleryValue'));
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
-  const [audioValue, setAudioValue] = useState(localStorage.getItem('audioValue'));
+  // const [audioValue, setAudioValue] = useState(localStorage.getItem('audioValue'));
   const [marqueeValue, setMarqueeValue] = useState(localStorage.getItem('marqueeValue'));
   
 const updateVariables = () => {
@@ -41,7 +42,7 @@ const updateVariables = () => {
         galleryValue={galleryValue}
         cameraValue={cameraValue}
         quizValue={quizValue}
-        audioValue={audioValue}
+        // audioValue={audioValue}
         marqueeValue={marqueeValue}>
         </LocalStorage>
         <RemoteStorage 
@@ -53,7 +54,7 @@ const updateVariables = () => {
         setGalleryValue={setGalleryValue}
         setCameraValue={setCameraValue}
         setQuizValue={setQuizValue}
-        setAudioValue={setAudioValue}
+        // setAudioValue={setAudioValue}
         setMarqueeValue={setMarqueeValue}
         setScroll={setScroll}>
         </RemoteStorage>
@@ -94,12 +95,12 @@ const updateVariables = () => {
                   setGalleryValue={setGalleryValue} 
                   setCameraValue={setCameraValue} 
                   setQuizValue={setQuizValue} 
-                  setAudioValue={setAudioValue}
+                  // setAudioValue={setAudioValue}
                   setValue={setValue}
                   galleryValue={galleryValue}
                   cameraValue={cameraValue} 
                   quizValue={quizValue} 
-                  audioValue={audioValue}  
+                  // audioValue={audioValue}  
                   value={value} 
                   user={user} />
       case 'login':
@@ -115,8 +116,8 @@ const updateVariables = () => {
                   galleryValue={galleryValue} 
                   value={value} 
                   user={user} />
-      case 'camera':
-        return <CameraAccess
+      case 'video':
+        return <Video
                   setPageState={setPage} 
                   setValuePrice={setValue} 
                   cameraValue={cameraValue} 
@@ -134,13 +135,6 @@ const updateVariables = () => {
                   setPageState={setPage} 
                   setValuePrice={setValue} 
                   quizValue={quizValue} 
-                  value={value} 
-                  user={user} />
-      case 'audio':
-        return <Audio 
-                  setPageState={setPage} 
-                  setValuePrice={setValue} 
-                  audioValue={audioValue} 
                   value={value} 
                   user={user} />
       default:

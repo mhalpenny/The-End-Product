@@ -334,10 +334,13 @@ marquee{
     background-image: url(../imgs/quiz.png);
 }
 
-#audioImg{
-    background-image: url(../imgs/audio.png);
+#infoImg{
+    background-image: url(../imgs/info.png);
 }
 
+#vidImg{
+    background-image: url(../imgs/vid.png);
+}
 
 /* .dashImgContainer{
     width:300px;

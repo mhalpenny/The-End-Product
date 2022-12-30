@@ -27,11 +27,11 @@ function Dashboard(props) {
       props.setQuizValue(decimalFix);
     });
 
-    useEffect(() => {
-      let decimalFix = +props.audioValue;
-      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
-      props.setAudioValue(decimalFix);
-    });
+    // useEffect(() => {
+    //   let decimalFix = +props.audioValue;
+    //   decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+    //   props.setAudioValue(decimalFix);
+    // });
   
     //failsafe if value corrupts (not stores on server)
     if (props.value === 'NaN'){
@@ -42,8 +42,8 @@ function Dashboard(props) {
     <div className="dashboard">
       <br /><br /><br /><br/>
       <div className="dashContainer" id='dashMedia'>
-        <p className='dashTitle'>Share a selfie!</p>
-        <button className="dashImgContainer" id='galleryImg'
+        <p className='dashTitle'>Share or take an image:</p>
+        <button className="dashImgContainer" id='camImg'
           onClick={() => {props.setPageState('gallery'); setButton('mediaBtn', 'none');}}>  
         </button>
         <div>
@@ -55,8 +55,8 @@ function Dashboard(props) {
       <br/>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p className='dashTitle'>Take quiz A!</p>
-        <button className="dashImgContainer" id='quizImg' 
+        <p className='dashTitle'>Fill out an info sheet:</p>
+        <button className="dashImgContainer" id='infoImg' 
         onClick={() => { props.setPageState('quiz');}}>
         </button>
         <div>
@@ -68,9 +68,9 @@ function Dashboard(props) {
       <br/>
       <br/>
       <div className="dashContainer" id='dashVideo'>
-        <p className='dashTitle'>Share a video!</p>
-        <button className="dashImgContainer" id='camImg' 
-        onClick={() => { props.setPageState('camera');}}>
+        <p className='dashTitle'>Share a video:</p>
+        <button className="dashImgContainer" id='vidImg' 
+        onClick={() => { props.setPageState('video');}}>
         </button>
         <div>
           <span className='earnSpan'>
@@ -81,7 +81,7 @@ function Dashboard(props) {
       <br/>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p className='dashTitle'>Take quiz B!</p>
+        <p className='dashTitle'>Take our quiz:</p>
         <button className="dashImgContainer" id='quizImg' 
         onClick={() => { props.setPageState('quizB');}}>
         </button>
