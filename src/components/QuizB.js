@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
 function Quiz(props) {
+	var response = [];
+	const [field, setField] = useState('');
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	const [showScore, setShowScore] = useState(false);
+	const [score, setScore] = useState(0);
+
+	const handleTextChange = (event) => {
+		setField(event.target.value);
+	  }
+
 	const questions = [
 		{
 			questionText: 'What is your name?',
-			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
-			],
+			answerOptions: [],
 		},
 		{
 			questionText: 'Who is CEO of Tesla?',
-			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
-			],
+			answerOptions: [],
 		},
 		{
 			questionText: 'The iPhone was created by which company?',
@@ -39,10 +39,6 @@ function Quiz(props) {
 			],
 		},
 	];
-
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
 
 	//modified from a score based quiz, TODO: remove score
 	//modified from a score based quiz, TODO: remove score
@@ -92,15 +88,19 @@ function Quiz(props) {
 						</div>
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>
-					<input type="text" className='quizField' required/>
+					<input type="text" className='quizField' id='quizBField' onChange={handleTextChange} required/>
 					{/* modify css */}
 					<button className='quizBButton' id='' 
 						onClick={() => { 
-						// props.setUsername(user); 
-						// props.setPageState('dashboard'); 
-						// setButton('none', 'loginBtn'); 
-						// props.setNewLogin(true); 
-						// props.setValuePrice('0.00');
+							const nextQuestion = currentQuestion + 1;
+							if (nextQuestion < questions.length) {
+								response[currentQuestion] = field;
+								setCurrentQuestion(nextQuestion);
+								document.getElementById('quizBField').value = '';
+							} else {
+								setShowScore(true);
+								props.setQuizBResponse(response);
+							}
 						}}>
 						Next
 					</button>

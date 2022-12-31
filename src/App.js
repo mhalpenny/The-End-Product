@@ -26,6 +26,7 @@ function App() {
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
   const [quizBValue, setQuizBValue] = useState(localStorage.getItem('quizBValue'));
+  const [quizBResponse, setQuizBResponse] = useState(localStorage.getItem('quizBResponse'));
   const [marqueeValue, setMarqueeValue] = useState(localStorage.getItem('marqueeValue'));
   
 const updateVariables = () => {
@@ -131,7 +132,9 @@ const updateVariables = () => {
         return <QuizB 
                   setPageState={setPage} 
                   setValuePrice={setValue} 
-                  quizValue={quizBValue} 
+                  setQuizBResponse={setQuizBResponse}
+                  quizBValue={quizBValue} 
+                  quizBResponse={quizBResponse}
                   value={value} 
                   user={user} />
       default:
