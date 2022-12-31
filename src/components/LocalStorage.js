@@ -35,9 +35,9 @@
         localStorage.setItem('quizValue', props.quizValue);
     }, [props.quizValue]);
 
-    // useEffect(() => {
-    //     localStorage.setItem('audioValue', props.audioValue);
-    // }, [props.audioValue]);
+    useEffect(() => {
+        localStorage.setItem('quizBValue', props.quizBValue);
+    }, [props.quizBValue]);
 
     useEffect(() => {
         localStorage.setItem('marqueeValue', props.marqueeValue);

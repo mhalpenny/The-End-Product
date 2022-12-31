@@ -3,9 +3,6 @@ import Gallery from './components/Gallery';
 import Login from './components/Login';
 import Quiz from './components/Quiz';
 import QuizB from './components/QuizB';
-// import Camera from './components/Camera';
-// import CameraAccess from './components/CameraAccess';
-// import Audio from './components/Audio';
 import Homepage from './components/Homepage';
 import Dashboard from './components/Dashboard';
 import Video from './components/Video';
@@ -28,7 +25,7 @@ function App() {
   const [galleryValue, setGalleryValue] = useState(localStorage.getItem('galleryValue'));
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
-  // const [audioValue, setAudioValue] = useState(localStorage.getItem('audioValue'));
+  const [quizBValue, setQuizBValue] = useState(localStorage.getItem('quizBValue'));
   const [marqueeValue, setMarqueeValue] = useState(localStorage.getItem('marqueeValue'));
   
 const updateVariables = () => {
@@ -42,7 +39,7 @@ const updateVariables = () => {
         galleryValue={galleryValue}
         cameraValue={cameraValue}
         quizValue={quizValue}
-        // audioValue={audioValue}
+        quizBValue={quizBValue}
         marqueeValue={marqueeValue}>
         </LocalStorage>
         <RemoteStorage 
@@ -54,7 +51,7 @@ const updateVariables = () => {
         setGalleryValue={setGalleryValue}
         setCameraValue={setCameraValue}
         setQuizValue={setQuizValue}
-        // setAudioValue={setAudioValue}
+        setQuizBValue={setQuizBValue}
         setMarqueeValue={setMarqueeValue}
         setScroll={setScroll}>
         </RemoteStorage>
@@ -76,7 +73,7 @@ const updateVariables = () => {
       if (process.env.NODE_ENV !== 'production') {
         return(
           <div>
-            <button className = 'backButton' id='backBtn' onClick={() => { 
+            <button className = 'devButton' id='backBtn' onClick={() => { 
                 setPage('homepage'); setUser(' '); setGalleryValue(0.00); setValue(0.00); setLoggedIn(false)
             }}>Wipe</button>
           </div>
@@ -95,12 +92,12 @@ const updateVariables = () => {
                   setGalleryValue={setGalleryValue} 
                   setCameraValue={setCameraValue} 
                   setQuizValue={setQuizValue} 
-                  // setAudioValue={setAudioValue}
+                  setQuizBValue={setQuizBValue} 
                   setValue={setValue}
                   galleryValue={galleryValue}
                   cameraValue={cameraValue} 
                   quizValue={quizValue} 
-                  // audioValue={audioValue}  
+                  quizBValue={quizBValue} 
                   value={value} 
                   user={user} />
       case 'login':
@@ -134,7 +131,7 @@ const updateVariables = () => {
         return <QuizB 
                   setPageState={setPage} 
                   setValuePrice={setValue} 
-                  quizValue={quizValue} 
+                  quizValue={quizBValue} 
                   value={value} 
                   user={user} />
       default:

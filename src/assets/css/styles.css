@@ -54,6 +54,27 @@ button:hover{
 
 .backButton{
     position: absolute;
+    margin-top: 480px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 20%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.devButton{
+    position: absolute;
     bottom: 50px;
     border-width: 2px;
     border-style: solid;
@@ -69,9 +90,26 @@ button:hover{
     font-weight: 300;
     font-size: 18px;
     text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
 }
+
+/* .backButton{
+    position: absolute;
+    bottom: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+} */
 
 
 /*=============================================
@@ -640,6 +678,69 @@ canvas{
     margin-left: 30%;
 }
 
+.quizField{
+    position: absolute;
+    margin-top: 135px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.quizBButton{
+    position: absolute;
+    margin-top: 230px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 35%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.quizCancelButton{
+    position: absolute;
+    margin-top: 370px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 35%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    /* box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black; */
+}
+
 
 /*=============================================
 =                 ~CONTROLBOARD               =
@@ -670,35 +771,63 @@ canvas{
 }
 
 #displayGalleryBtn{
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 #displayCameraBtn{
-    margin-top: 200px;
+    margin-top: 140px;
 }
 
 #displayQuizBtn{
-    margin-top: 350px;
+    margin-top: 270px;
+}
+
+#displayQuizBBtn{
+    margin-top: 400px;
 }
 
 #displayMarqueeBtn{
-    margin-top: 500px;
+    margin-top: 540px;
+}
+
+#valueFieldGallery{
+    margin-top: 55px;
+}
+
+#valueFieldCamera{
+    margin-top: 185px;
+}
+
+#valueFieldQuiz{
+    margin-top: 315px;
+}
+
+#valueFieldQuizB{
+    margin-top: 445px;
+}
+
+#valueFieldMarquee{
+    margin-top: 585px;
 }
 
 #newGalleryBtn{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 #newCameraBtn{
-    margin-top: 300px;
+    margin-top: 230px;
 }
 
 #newQuizBtn{
-    margin-top: 450px;
+    margin-top: 360px;
+}
+
+#newQuizBBtn{
+    margin-top: 490px;
 }
 
 #newMarqueeBtn{
-    margin-top: 600px;
+    margin-top: 630px;
 }
 
 /*----------  Input ----------*/
@@ -722,20 +851,4 @@ canvas{
     text-align: center;
     /* box-shadow: 4px 4px white, 
     4px 4px 0px 2px black; */
-}
-
-#valueFieldGallery{
-    margin-top: 100px;
-}
-
-#valueFieldCamera{
-    margin-top: 250px;
-}
-
-#valueFieldQuiz{
-    margin-top: 400px;
-}
-
-#valueFieldMarquee{
-    margin-top: 550px;
 }

@@ -8,7 +8,7 @@ function Control(props) {
     const [galleryValue, setGalleryValue] = useState(0);
     const [cameraValue, setCameraValue] = useState(0);
     const [quizValue, setQuizValue] = useState(0);
-    const [audioValue, setAudioValue] = useState(0);
+    const [quizBValue, setQuizBValue] = useState(0);
     const [marqueeValue, setMarqueeValue] = useState(0);
 
     //take the properties of JSON file and save them here for displaying
@@ -16,7 +16,7 @@ function Control(props) {
         setGalleryValue(valuesObject.galleryValue);
         setCameraValue(valuesObject.cameraValue);
         setQuizValue(valuesObject.quizValue);
-        setAudioValue(valuesObject.audioValue);
+        setQuizBValue(valuesObject.quizBValue);
         setMarqueeValue(valuesObject.marqueeValue);
     }
 
@@ -105,7 +105,7 @@ function Control(props) {
         });
     }
     
-    // handlers for gallery value
+    // handlers for quiz value
     const handleQuizValueChange = (event) => {
         setQuizValue(event.target.value);
     }
@@ -130,31 +130,32 @@ function Control(props) {
           });
     }
 
-        // handlers for gallery value
-        const handleAudioValueChange = (event) => {
-            setAudioValue(event.target.value);
-        }
-    
-        const handleAudioValueSubmit = async () => {
-            // TODO: you could abstract some of this code out so you don't have so much repeating code
-            const existingValues = await fetchValuesFromS3();
-            existingValues.audioValue = +audioValue;
-            const newValuesJSON = JSON.stringify(existingValues);
-    
-            const fileBlob = new Blob([newValuesJSON], {
-                type: 'application/json'
-            });
-    
-            const fileToUpload = new File([fileBlob], "filename");
-    
-            await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "multipart/form-data"
-                },
-                body: fileToUpload,
-              });
-        }
+     // handlers for quizB value
+     const handleQuizBValueChange = (event) => {
+        setQuizBValue(event.target.value);
+    }
+
+    const handleQuizBValueSubmit = async () => {
+        const existingValues = await fetchValuesFromS3();
+        existingValues.quizBValue = +quizBValue;
+        const newValuesJSON = JSON.stringify(existingValues);
+
+        const fileBlob = new Blob([newValuesJSON], {
+            type: 'application/json'
+        });
+
+        const fileToUpload = new File([fileBlob], "filename");
+
+        await fetch('https://the-end-product.s3.amazonaws.com/settings.json', {
+            method: "PUT",
+            headers: {
+              "Content-Type": "multipart/form-data"
+            },
+            body: fileToUpload,
+          });
+    }
+
+     
          // handlers for marquee value
          const handleMarqueeValueChange = (event) => {
             setMarqueeValue(event.target.value);
@@ -200,9 +201,9 @@ function Control(props) {
         <button className='endButton' id='newQuizBtn' type="submit" onClick={handleQuizValueSubmit}>Update price</button>
         <br/>
         <br/>
-        {/* <button className='displayButton' id='displayAudioBtn' type="button" disabled>Audio: ${audioValue}</button>
-        <input type="text" className='valueField' id="valueFieldAudio" value={audioValue} onChange={handleAudioValueChange} required/>
-        <button className='endButton' id='newAudioBtn' type="submit" onClick={handleAudioValueSubmit}>Update price</button> */}
+        <button className='displayButton' id='displayQuizBBtn' type="button" disabled>Quiz B: ${quizBValue}</button>
+        <input type="text" className='valueField' id="valueFieldQuizB" value={quizBValue} onChange={handleQuizBValueChange} required/>
+        <button className='endButton' id='newQuizBBtn' type="submit" onClick={handleQuizBValueSubmit}>Update price</button>
         <br/>
         <br/>
         <button className='displayButton' id='displayMarqueeBtn' type="button" disabled>Marquee: {marqueeValue}</button>

@@ -27,11 +27,11 @@ function Dashboard(props) {
       props.setQuizValue(decimalFix);
     });
 
-    // useEffect(() => {
-    //   let decimalFix = +props.audioValue;
-    //   decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
-    //   props.setAudioValue(decimalFix);
-    // });
+    useEffect(() => {
+      let decimalFix = +props.quizBValue;
+      decimalFix = (Math.floor(decimalFix*100)/100).toFixed(2);
+      props.setQuizBValue(decimalFix);
+    });
   
     //failsafe if value corrupts (not stores on server)
     if (props.value === 'NaN'){
@@ -57,11 +57,11 @@ function Dashboard(props) {
       <div className="dashContainer" id='dashQuiz'>
         <p className='dashTitle'>Fill out an info sheet:</p>
         <button className="dashImgContainer" id='infoImg' 
-        onClick={() => { props.setPageState('quiz');}}>
+        onClick={() => { props.setPageState('quizB');}}>
         </button>
         <div>
           <span className='earnSpan'>
-            <p>You earn <b>$</b> {props.quizValue}</p> 
+            <p>You earn <b>$</b> {props.quizBValue}</p> 
           </span>
         </div>
       </div>
@@ -83,7 +83,7 @@ function Dashboard(props) {
       <div className="dashContainer" id='dashQuiz'>
         <p className='dashTitle'>Take our quiz:</p>
         <button className="dashImgContainer" id='quizImg' 
-        onClick={() => { props.setPageState('quizB');}}>
+        onClick={() => {props.setPageState('quiz');}}>
         </button>
         <div>
           <span className='earnSpan'>

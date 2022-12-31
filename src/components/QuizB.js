@@ -85,16 +85,16 @@ function Quiz(props) {
 				<>
 					<div className='question-section'>
                     <div className='quizTitle'>
-						Quiz Title
+						Info Form
 						</div>
 						<div className='quizNumber'>
 							 <span>Question #{currentQuestion + 1}</span>:
 						</div>
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>
-					<input type="text" id="userField" required/>
+					<input type="text" className='quizField' required/>
 					{/* modify css */}
-					<button className = 'userButton' id='loginBtn' 
+					<button className='quizBButton' id='' 
 						onClick={() => { 
 						// props.setUsername(user); 
 						// props.setPageState('dashboard'); 
@@ -102,7 +102,11 @@ function Quiz(props) {
 						// props.setNewLogin(true); 
 						// props.setValuePrice('0.00');
 						}}>
-						Start
+						Next
+					</button>
+					<button className='quizCancelButton' id='' 
+					onClick={() => { props.setPageState('dashboard'); }}>
+						Cancel
 					</button>
 				</>
 			)}
