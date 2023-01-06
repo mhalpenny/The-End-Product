@@ -1,43 +1,25 @@
 import checkUser from './UserCheck';
 
 function setButton(future, current){
+  //if the user is at the login page...
     if (current == 'loginBtn'){
+      //runs a check and returns true/false
       checkUser();
 
+      //if all is correct, switch the buttons
       if(checkUser()){
-        // var head = document.getElementById('headSpan');
-        // head.classList.remove("hidden");
         var welcome = document.getElementById('chooseUsername');
         welcome.classList.add("hidden");
-        // var w = document.getElementById('quizBtn');
-        // w.classList.remove("hidden");
-        // var x = document.getElementById(future);
-        // x.classList.remove("hidden");
-        // var y = document.getElementById(current);
-        // y.classList.add("hidden");
         var z = document.getElementById('userField');
         z.classList.add("hidden");
       }
-      
+
+    //if the login is complete, remove the field
     } else if (current == 'homeBtn'){
-      // var x = document.getElementById(future);
-      // x.classList.remove("hidden");
-      // var y = document.getElementById(current);
-      // y.classList.add("hidden");
       var z = document.getElementById('userField');
       z.classList.remove("hidden");
 
-    } else if (future == 'none'){
-      // var y = document.getElementById(current);
-      // y.classList.add("hidden");
-
-    }else if (current == 'none'){
-      // var y = document.getElementById(future);
-      // y.classList.remove("hidden");
-
-    }  else if (current == 'camera'){
-      
-      
+    //switch the buttons between the passed states
     }else{
         var x = document.getElementById(future);
         x.classList.remove("hidden");
