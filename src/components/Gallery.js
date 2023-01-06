@@ -19,8 +19,6 @@ function Gallery(props) {
 /*====================================================
 =                 UPLOAD CLICK                       =
 ====================================================*/
-  //
-
   const handleUploadClick = async () => {
     //generate the correponding filename
 		const date = 'date-testing';
@@ -50,7 +48,6 @@ function Gallery(props) {
 /*====================================================
 =                 SELL CLICK                         =
 ====================================================*/
-  //upload the media to s3 with the given link
   const handleSellClick = async () => {
     // console.log('sell');
     // console.log(uploadUrl);
@@ -90,7 +87,6 @@ const renderButton = () => {
   //if the sell button bool is true, render the button with an associated sell function 
     if (showSellButton === true) {
       return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
-    
       //if the sell button bool is false, render the button with an associated upload function 
     } else {
       return <button className = 'endButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
