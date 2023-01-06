@@ -3,5 +3,4 @@ export const fetchValuesFromS3 = async () => {
     const obj = await fetched.json();
     // console.log(obj);
     return obj;
-    // TODO: do all the other ones;
 }
