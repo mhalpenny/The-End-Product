@@ -11,7 +11,7 @@ function Gallery(props) {
 /*====================================================
 =                 IMAGE SELECT                       =
 ====================================================*/
-  //function to create image upload preview
+  //set the user selected image
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
@@ -19,14 +19,14 @@ function Gallery(props) {
 /*====================================================
 =                 UPLOAD CLICK                       =
 ====================================================*/
-  // when promise returns, call setShowSellButton
-  const handleUploadClick = async () => {
-    console.log('upload');
+  //
 
-    // TODO: pass in media 'type' - e.g. images, etc
-    // final keyName could look like 2022-12-12/matt/image-50-0.25
-    const keyName=`${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}`;
-    console.log(keyName);
+  const handleUploadClick = async () => {
+    //generate the correponding filename
+		const date = 'date-testing';
+    const keyName=`${date}/${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}.jpg`;
+    // console.log('upload');
+    // console.log(keyName);
 
     //request an upload url from s3 through node/heroku
     const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
@@ -35,13 +35,16 @@ function Gallery(props) {
       headers: {'Content-Type':'application/json'},
     })
       .then(response => response.json())
+
+      //when promise is returned, set the sell button display to true
       setShowSellButton(true);
+      //save the returned the upload url for s3
       setUploadUrl(url);
 
-      const imageUrl = url.split('?')[0];
-      // const image = document.createElement("img");
-      let image = document.getElementById("imgPreview");
-      image.src = imageUrl;  
+      //WIP for an image preview...
+      // const imageUrl = url.split('?')[0];
+      // let image = document.getElementById("imgPreview");
+      // image.src = imageUrl;  
     }
 
 /*====================================================
@@ -49,9 +52,10 @@ function Gallery(props) {
 ====================================================*/
   //upload the media to s3 with the given link
   const handleSellClick = async () => {
-    console.log('sell');
-    console.log(uploadUrl);
+    // console.log('sell');
+    // console.log(uploadUrl);
 
+    //upload to file with the received s3 url
     await fetch(uploadUrl, {
       method: "PUT",
       headers: {
@@ -60,30 +64,35 @@ function Gallery(props) {
       body: images[0],
     });
 
-    //convert relevant values to be a num rather than a string
-    let numValue = props.value;
+    //based on the current selling value, modify the user's payout
+		//to be manipulated the values must be changed from their storage state (strings) to nums
+		let numValue = props.value;
     let numGalleryValue = props.galleryValue;
+
+    //convert to numerical
     numValue = +numValue;
     numGalleryValue = +numGalleryValue;
-    console.log('value: ' + props.value);
-    console.log('Gvalue: ' + props.galleryValue);
+    // console.log('value: ' + props.value);
+    // console.log('Gvalue: ' + props.galleryValue);
 
     //add on the new sold value to the total value
     props.setValuePrice(numValue + numGalleryValue);
-    console.log('Addition: ' + props.value);
+    // console.log('Addition: ' + props.value);
 
-    //return to the dashboard
+    //return to user to the dashboard
     props.setPageState('dashboard');
   }
 
 /*====================================================
 =                 BUTTON SWAP                        =
 =====================================================*/
-  const renderButton = () => {
+const renderButton = () => {
+  //if the sell button bool is true, render the button with an associated sell function 
     if (showSellButton === true) {
       return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
+    
+      //if the sell button bool is false, render the button with an associated upload function 
     } else {
-      // TODO: this should be disabled unless user has actually selected a file
       return <button className = 'endButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
     }
   }

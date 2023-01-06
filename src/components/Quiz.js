@@ -1,6 +1,36 @@
 import React, { useState } from 'react';
 
 function Quiz(props) {
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	const [showScore, setShowScore] = useState(false);
+	const [score, setScore] = useState(0);
+
+	function handleFinishButton(){
+		console.log('value: ' + props.value);
+		let numValue = props.value;
+		numValue = +numValue;
+		console.log('Qvalue: ' + props.quizValue);
+		let numQuizValue = props.quizValue;
+		numQuizValue = +numQuizValue;
+		props.setValuePrice(numValue + numQuizValue);
+		console.log('Addition: ' + props.value);
+		console.log('.........');
+		props.setPageState('dashboard');
+	}
+
+	//modified from a score based quiz, TODO: remove score
+	const handleAnswerOptionClick = (isCorrect) => {
+		if (isCorrect) {
+			setScore(score + 1);
+		}
+
+		const nextQuestion = currentQuestion + 1;
+		if (nextQuestion < questions.length) {
+			setCurrentQuestion(nextQuestion);
+		} else {
+			setShowScore(true);
+		}
+	};
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -40,23 +70,6 @@ function Quiz(props) {
 		},
 	];
 
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [score, setScore] = useState(0);
-
-	//modified from a score based quiz, TODO: remove score
-	const handleAnswerOptionClick = (isCorrect) => {
-		if (isCorrect) {
-			setScore(score + 1);
-		}
-
-		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
-		} else {
-			setShowScore(true);
-		}
-	};
 	return (
 		<div className='quiz'>
 			{showScore ? (
@@ -64,19 +77,7 @@ function Quiz(props) {
 					<h1 className="welcome" id='quizText'>That's it!</h1>
 					{/* this button absolutely needs to be cleaned up */}
 					{/* and converted to a state based process */}
-					<button className = 'endButton' id='finishBtn' 
-						onClick={() => {
-							console.log('value: ' + props.value);
-							let numValue = props.value;
-							numValue = +numValue;
-							console.log('Qvalue: ' + props.quizValue);
-							let numQuizValue = props.quizValue;
-							numQuizValue = +numQuizValue;
-							props.setValuePrice(numValue + numQuizValue);
-							console.log('Addition: ' + props.value);
-							console.log('.........');
-							props.setPageState('dashboard');
-						}}>
+					<button className = 'endButton' id='finishBtn' onClick={handleFinishButton}>
 					Finish quiz
 					</button>
 				</div>

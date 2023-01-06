@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import userIcon from '../assets/imgs/user.png';
 
 function Header(props) {
-  console.log(props.value);
+//   console.log(props.value);
    if (props.loggedIn){
     return (
       <div id='header'>
