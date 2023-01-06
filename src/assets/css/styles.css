@@ -5,6 +5,10 @@
     display: none;
 }
 
+/* body { 
+    height: 100vh;
+} */
+
 /*----------  Buttons  ----------*/
 button:hover{
     cursor: crosshair;
@@ -127,12 +131,7 @@ button:hover{
 
 }
 
-.marqueeContainer{
-    position: sticky;
-    bottom: 0;
-  }
-
-  .helloContainer{
+.helloContainer{
     position: relative;
     width: 100%;
     top: 0;
@@ -175,9 +174,12 @@ button:hover{
 =                 ~FOOTER                     =
 =============================================*/
 #footer{
-    position: absolute;
+    position: sticky;
+    width: 100%;
+    /* height: 100px; */
+    bottom: 0px;
+    left: 0px;
     overflow: hidden;
-    bottom:0;
 }
 
 marquee{
@@ -185,6 +187,13 @@ marquee{
     color: white;
 }
 
+.marqueeContainer{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-style: oblique;
+}
 
 /*=============================================
 =                 ~LOGIN                      =
@@ -263,14 +272,6 @@ marquee{
     font-weight: 300;
     line-height: 20px;
     padding: 3%;
-}
-
-.dashScroll{
-    padding-top: 5%;
-    padding-bottom: 5%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-style: oblique;
 }
 
 .earnSpan{

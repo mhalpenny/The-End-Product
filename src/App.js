@@ -12,7 +12,6 @@ import RemoteStorage from './components/RemoteStorage';
 import Video from './components/Video';
 import "./assets/css/styles.css";
 
-
 function App() {
   const [page, setPage] = useState(localStorage.getItem('page'));
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -161,7 +160,7 @@ const updateVariables = () => {
       {renderHeader()}
       {renderContent()}
       {renderDev()}
-      {/* {renderFooter()} */}
+      {renderFooter()}
     </div>
   );
 }
