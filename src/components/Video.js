@@ -6,27 +6,25 @@ function Video(props) {
 ====================================================*/
   const [showSellButton, setShowSellButton] = useState(false);
   const [uploadUrl, setUploadUrl] = useState('');
-  const [images, setImages] = useState([]);
+  const [video, setVideo] = useState([]);
   
 /*====================================================
 =                 IMAGE SELECT                       =
 ====================================================*/
-  //function to create image upload preview
-  function onImageChange(e) {
-    setImages([...e.target.files]);
+  //set the user selected video
+  function onVideoChange(e) {
+    setVideo([...e.target.files]);
   }
 
 /*====================================================
 =                 UPLOAD CLICK                       =
 ====================================================*/
-  // when promise returns, call setShowSellButton
   const handleUploadClick = async () => {
-    console.log('upload');
-
-    // TODO: pass in media 'type' - e.g. images, etc
-    // final keyName could look like 2022-12-12/matt/image-50-0.25
-    const keyName=`${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}`;
-    console.log(keyName);
+    //generate the correponding filename
+		const date = 'date-testing';
+    const keyName=`${date}/${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}.mp4`;
+    // console.log('upload');
+    // console.log(keyName);
 
     //request an upload url from s3 through node/heroku
     const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
@@ -35,44 +33,46 @@ function Video(props) {
       headers: {'Content-Type':'application/json'},
     })
       .then(response => response.json())
-      setShowSellButton(true);
-      setUploadUrl(url);
 
-      const imageUrl = url.split('?')[0];
-      // const image = document.createElement("img");
-      let image = document.getElementById("imgPreview");
-      image.src = imageUrl;  
+      //when promise is returned, set the sell button display to true
+      setShowSellButton(true);
+      //save the returned the upload url for s3
+      setUploadUrl(url);
     }
 
 /*====================================================
 =                 SELL CLICK                         =
 ====================================================*/
-  //upload the media to s3 with the given link
   const handleSellClick = async () => {
-    console.log('sell');
-    console.log(uploadUrl);
+    // console.log('sell');
+    // console.log(uploadUrl);
 
+    //upload to file with the received s3 url
     await fetch(uploadUrl, {
       method: "PUT",
       headers: {
         "Content-Type": "multipart/form-data"
       },
-      body: images[0],
+      // !!!check this functionality
+      body: video[0],
     });
 
-    //convert relevant values to be a num rather than a string
-    let numValue = props.value;
-    let numGalleryValue = props.galleryValue;
+    //based on the current selling value, modify the user's payout
+		//to be manipulated the values must be changed from their storage state (strings) to nums
+		let numValue = props.value;
+    let numCameraValue = props.cameraValue;
+
+        //convert to numerical
     numValue = +numValue;
-    numGalleryValue = +numGalleryValue;
-    console.log('value: ' + props.value);
-    console.log('Gvalue: ' + props.galleryValue);
+    numCameraValue = +numCameraValue;
+    // console.log('value: ' + props.value);
+    // console.log('Gvalue: ' + props.galleryValue);
 
     //add on the new sold value to the total value
-    props.setValuePrice(numValue + numGalleryValue);
-    console.log('Addition: ' + props.value);
+    props.setValuePrice(numValue + numCameraValue);
+    // console.log('Addition: ' + props.value);
 
-    //return to the dashboard
+    //return to user to the dashboard
     props.setPageState('dashboard');
   }
 
@@ -80,10 +80,11 @@ function Video(props) {
 =                 BUTTON SWAP                        =
 =====================================================*/
   const renderButton = () => {
+    //if the sell button bool is true, render the button with an associated sell function 
     if (showSellButton === true) {
       return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
+     //if the sell button bool is false, render the button with an associated upload function 
     } else {
-      // TODO: this should be disabled unless user has actually selected a file
       return <button className = 'endButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
     }
   }
@@ -107,7 +108,7 @@ function Video(props) {
       <div id='mediaUploadContainer'>
         <form id="imageForm">
         <input id="imageInput" type="file" className = 'browseButton' accept="video/*" 
-          onChange={onImageChange}/>
+          onChange={onVideoChange}/>
         </form>
       </div>
     </div>
