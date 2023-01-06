@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import Dashboard from './components/Dashboard';
+import Footer from './components/Footer';
 import Gallery from './components/Gallery';
+import Header from './components/Header';
+import Homepage from './components/Homepage';
+import LocalStorage from './components/LocalStorage';
 import Login from './components/Login';
 import Quiz from './components/Quiz';
 import QuizB from './components/QuizB';
-import Homepage from './components/Homepage';
-import Dashboard from './components/Dashboard';
-import Video from './components/Video';
-import LocalStorage from './components/LocalStorage';
 import RemoteStorage from './components/RemoteStorage';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Video from './components/Video';
 import "./assets/css/styles.css";
 
 
