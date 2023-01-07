@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import setButton from '../assets/js/Buttons';
 
 function Dashboard(props) {
+/*====================================================
+=                 VALUE FORMATTING                   =
+====================================================*/
   //convert all displayed values to have 2 decimal points
   useEffect(() => {
     let decimalFix = +props.value;
@@ -38,6 +41,9 @@ function Dashboard(props) {
       props.setValue(0.00);
     }
 
+/*====================================================
+=                 RENDER                            =
+====================================================*/
   return (
     <div className="dashboard">
       <br /><br /><br /><br/>
