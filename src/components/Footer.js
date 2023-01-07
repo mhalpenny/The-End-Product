@@ -10,9 +10,7 @@ function Footer(props) {
     )
    } else {
     return(
-        <div id='footer' className='hidden'>
-               
-      </div>
+        <div id='footer' className='hidden'></div>
     )
    }
 }

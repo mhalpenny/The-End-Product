@@ -1,36 +1,96 @@
 import React, { useState } from 'react';
 
 function Quiz(props) {
+/*====================================================
+=                 VARIABLES                       =
+====================================================*/
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [response, setResponse] = useState([]);
 
-	function handleFinishButton(){
-		console.log('value: ' + props.value);
-		let numValue = props.value;
-		numValue = +numValue;
-		console.log('Qvalue: ' + props.quizValue);
-		let numQuizValue = props.quizValue;
-		numQuizValue = +numQuizValue;
-		props.setValuePrice(numValue + numQuizValue);
-		console.log('Addition: ' + props.value);
-		console.log('.........');
-		props.setPageState('dashboard');
-	}
-
-	//modified from a score based quiz, TODO: remove score
+/*====================================================
+=                 ANSWER BUTTONS                     =
+====================================================*/
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
+			//create a new string with the old and new field info
+			var tempResponse = response + '/' + score;
+			setResponse(tempResponse);
+			// console.log(response);
 		}
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
+			//set the final string variable for the quiz and display end button
+			props.setQuizResponse(response);
 			setShowScore(true);
 		}
 	};
+
+/*====================================================
+=                 END BUTTON                       =
+====================================================*/
+	const handleFinishButton = async () => {
+		// console.log('to submit: ' + response);
+		//create a JSON appropriate string to be converted
+		const newValuesJSON = JSON.stringify(response);
+
+		//convert the values to a new Blob object to be included in the file
+		const fileBlob = new Blob([newValuesJSON], {
+			type: 'application/json'
+		});
+
+		//convert the Blob object to a file for posting
+		const fileToUpload = new File([fileBlob], "userdata");
+
+		//generate the correponding filename
+		const date = 'date-testing';
+		const keyName=`${date}/${props.user}/quiz-${Math.floor((Math.random() * 50))}-${props.value}.json`;
+		// console.log(keyName);
+
+		//request an upload url from s3 through node/heroku
+		const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
+			crossDomain:true,
+			method: 'GET',
+			headers: {'Content-Type':'multipart/form-data'},
+		})
+			.then(response => response.json())
+		
+		//upload to file with the received s3 url
+		await fetch(url, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "multipart/form-data"
+			},
+			body: fileToUpload,
+			});
+		
+		//based on the current selling value, modify the user's payout
+		//to be manipulated the values must be changed from their storage state (strings) to nums
+		let numValue = props.value;
+		let numQuizValue = props.quizValue;
+
+		//convert to numerical
+		numValue = +numValue;
+		numQuizValue = +numQuizValue;
+		// console.log('value: ' + props.value);
+		// console.log('Qvalue: ' + props.quizValue);
+		
+		//add on the new sold value to the total value
+		props.setValuePrice(numValue + numQuizValue);
+		// console.log('Addition: ' + props.value);
+		
+		//return to user to the dashboard
+		props.setPageState('dashboard');
+	}
+
+/*====================================================
+=                 QUESTIONS                          =
+=====================================================*/
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -70,21 +130,26 @@ function Quiz(props) {
 		},
 	];
 
+/*====================================================
+=                 RENDER                             =
+=====================================================*/
 	return (
 		<div className='quiz'>
 			{showScore ? (
-				<div className='score-section welcomeContainer'>
-					<h1 className="welcome" id='quizText'>That's it!</h1>
-					{/* this button absolutely needs to be cleaned up */}
-					{/* and converted to a state based process */}
-					<button className = 'endButton' id='finishBtn' onClick={handleFinishButton}>
-					Finish quiz
-					</button>
+				<div className='score-section sellContainer'>
+					<span className='centerMessage'>
+						<h1 id='sellText'>Thanks!</h1>
+					</span>
+					<span className='flexSpan'>
+						<button className='endButton' id='quizSellButton' onClick={handleFinishButton}>
+						Sell data
+						</button>
+					</span>
 				</div>
 			) : (
 				<>
-					<div className='question-section'>
-                    <div className='quizTitle'>
+					<div className='quizContainer'>
+                    	<div className='quizTitle'>
 						Quiz Title
 						</div>
 						<div className='quizNumber'>
@@ -92,9 +157,11 @@ function Quiz(props) {
 						</div>
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>
-					<div className='quizContainer'>
+					<div className='questionContainer'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button className='quizButton' onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							<span className='flexSpan'>
+								<button className='quizQuestionButton' onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							</span>
 						))}
 					</div>
 				</>

@@ -25,6 +25,7 @@ function App() {
   const [cameraValue, setCameraValue] = useState(localStorage.getItem('cameraValue'));
   const [quizValue, setQuizValue] = useState(localStorage.getItem('quizValue'));
   const [quizBValue, setQuizBValue] = useState(localStorage.getItem('quizBValue'));
+  const [quizResponse, setQuizResponse] = useState(localStorage.getItem('quizResponse'));
   const [quizBResponse, setQuizBResponse] = useState(localStorage.getItem('quizBResponse'));
   const [marqueeValue, setMarqueeValue] = useState(localStorage.getItem('marqueeValue'));
   
@@ -70,10 +71,11 @@ const updateVariables = () => {
   }
 
     const renderDev = () => {
+      //don't allow the dev button to show on the live web app
       if (process.env.NODE_ENV !== 'production') {
         return(
-          <div>
-            <button className = 'devButton' id='backBtn' onClick={() => { 
+          <div id="devContainer">
+            <button className = 'devButton' onClick={() => { 
                 setPage('homepage'); setUser(' '); setGalleryValue(0.00); setValue(0.00); setLoggedIn(false)
             }}>Wipe</button>
           </div>
@@ -124,7 +126,9 @@ const updateVariables = () => {
         return <Quiz 
                   setPageState={setPage} 
                   setValuePrice={setValue} 
+                  setQuizResponse={setQuizResponse}
                   quizValue={quizValue} 
+                  quizResponse={quizResponse}
                   value={value} 
                   user={user} />
       case 'quizB':

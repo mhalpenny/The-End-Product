@@ -129,17 +129,20 @@ function Quiz(props) {
 	return (
 		<div className='quiz'>
 			{showEnd ? (
-				<div className='score-section welcomeContainer'>
-					<h1 className="welcome" id='quizText'>Thanks!</h1>
-					<button className = 'endButton' id='finishBtn' 
-						onClick={handleEndButton}>
-					Sell data
-					</button>
+				<div className='sellContainer'>
+					<span className='centerMessage'>
+						<h1 id='sellText'>Thanks!</h1>
+					</span>
+					<span className='flexSpan'>
+						<button className='endButton' id='quizSellButton' onClick={handleEndButton}>
+						Sell data
+						</button>
+					</span>
 				</div>
 			) : (
 				<>
-					<div className='question-section'>
-                    <div className='quizTitle'>
+					<div className='quizContainer'>
+                    	<div className='quizTitle'>
 						Info Form
 						</div>
 						<div className='quizNumber'>
@@ -147,13 +150,19 @@ function Quiz(props) {
 						</div>
 						<div className='quizText'>{questions[currentQuestion].questionText}</div>
 					</div>
-					<input type="text" className='quizField' id='quizBField' onChange={handleTextChange} required/>
-					<button className='quizBButton' id='' onClick={handleNextQuestion}>
-						Next
-					</button>
-					<button className='quizCancelButton' id='' onClick={() => { props.setPageState('dashboard'); }}>
-						Cancel
-					</button>
+					<span className='flexSpan'>
+						<input type="text" className='quizField' id='quizBField' onChange={handleTextChange} required/>
+					</span>	
+					<span className='flexSpan'>
+						<button className='quizNextButton' onClick={handleNextQuestion}>
+							Next
+						</button>
+					</span>
+					<span className='flexSpan'>
+						<button className='quizCancelButton' onClick={() => { props.setPageState('dashboard'); }}>
+							Cancel
+						</button>
+					</span>
 				</>
 			)}
 		</div>
