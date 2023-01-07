@@ -1,18 +1,17 @@
 /*=============================================
 =                 ~GLOBAL                     =
 =============================================*/
-.hidden{
-    display: none;
+html, body { 
+    height: 100%;
+    /* overflow: hidden; */
 }
 
-/* body { 
-    height: 100vh;
-} */
+.hidden{ display: none; }
+
+.App{}
 
 /*----------  Buttons  ----------*/
-button:hover{
-    cursor: crosshair;
-}
+button:hover{ cursor: crosshair; }
 
 .endButton{
     position: absolute;
@@ -120,61 +119,88 @@ button:hover{
 =                 ~HEADER                     =
 =============================================*/
 #header{
-    height: 60px;
     position: sticky;
     position: -webkit-sticky;
     background-color: white;
     width: 100%;
-    top: 0;
-    margin-top : 0;
+    height: 60px;
+    top: 0px;
+    margin-top : 0px;
     z-index: 999;
-
+    border-bottom: #000 3px solid;
 }
 
-.helloContainer{
+.headerContainer{
     position: relative;
     width: 100%;
-    top: 0;
-    margin-top : 0;
+    top: 0px;
+    margin-top: 0px;
 }
+
+#headerSpan{
+    width: 80%;
+}
+
+.icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-repeat:no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border: none;
+    background-color: white;
+    outline: none;
+    border: 0;
+}
+
+/*----------  User Side  ----------*/
 
 .hello{
     font-family: Inter, sans-serif;
     font-weight: 300;
     font-size: 18px;
-    text-align: left;
-    line-height: 20px;
     position: relative;
     float: left;
+    text-align: left;
+    line-height: 10px;
     margin-left: 2%;
     top: 27px;
 }
+
+#userImg{
+    background-image: url(../imgs/user.png);
+    float: left;
+    position: relative;
+    top: 20px;
+    margin-left: 3%;
+    /* filter: invert(1); */
+}
+
+/*----------  Value Side  ----------*/
 
 .dollar{
     font-size: 18px;
 }
 
-#headPrice{
+#headerPrice{
     font-family: Inter, sans-serif;
     font-weight: 300;
-    position: relative;
     font-size: 18px;
+    position: relative;
     float: right;
+    line-height: 10px;
     right: 20px;
     margin-left: 2%;
-    top: 30px;
+    top: 27px;
 }
-
-#headSpan{
-    width: 80%;
-}
-
 
 /*=============================================
 =                 ~FOOTER                     =
 =============================================*/
 #footer{
     position: sticky;
+    position: -webkit-sticky;
     width: 100%;
     /* height: 100px; */
     bottom: 0px;
@@ -217,14 +243,6 @@ marquee{
     padding-right: 20%;
 }
 
-.welcomeContainerCam{
-    width: 100%;
-    padding-left: 24%;
-    padding-right: 20%;
-    top: 50px;
-    text-align: center;
-}
-
 #userField{
     position: absolute;
     margin-top: 385px;
@@ -250,6 +268,10 @@ marquee{
 /*=============================================
 =                 ~DASHBOARD                  =
 =============================================*/
+.dashboard{
+    overflow: hidden;
+}
+
 .dashTitle{
     font-size: 20px;
     text-align: center;
@@ -319,48 +341,8 @@ marquee{
     border: 0;
 }
 
-.icon{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-repeat:no-repeat;
-    background-position: center center; 
-    background-size: cover;
-    border: none;
-    background-color: white;
-    outline: none;
-    border: 0;
-}
-
-.cameraIcon{
-    background-image: url(../imgs/camera.png);
-    border: 0;
-}
-
-.albumIcon{
-    background-image: url(../imgs/album.png);
-}
-
 #galleryImg{
     background-image: url(../imgs/gallery.png);
-    
-    /* filter: invert(1); */
-}
-
-#userImg{
-    background-image: url(../imgs/user.png);
-    float: left;
-    position: relative;
-    top: 25px;
-    margin-left: 3%;
-    /* filter: invert(1); */
-}
-
-#dollarImg{
-    background-image: url(../imgs/dollar.png);
-    position: relative;
-    top: 0px;
-    /* margin-left: 10%; */
     /* filter: invert(1); */
 }
 
@@ -380,22 +362,6 @@ marquee{
 #vidImg{
     background-image: url(../imgs/vid.png);
 }
-
-/* .dashImgContainer{
-    width:300px;
-    height: 300px;
-    margin-left: 10%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background-repeat:no-repeat;
-    background-position: center center; 
-    background-size: cover;
-    border: none;
-    background-color: white;
-    outline: none;
-    border: 0;
-} */
-
 
 /*=============================================
 =                 ~CAMERA                     =

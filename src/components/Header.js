@@ -6,10 +6,10 @@ function Header(props) {
    if (props.loggedIn){
     return (
       <div id='header'>
-          <div className="helloContainer">
-              <span id='headSpan' className=''>
+          <div className="headerContainer">
+              <span id='headerSpan' className=''>
                   <img id='userImg' className='icon' src={userIcon} alt=''/><h1 className="hello">Hello, {props.user}!</h1>
-              <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
+              <p id='headerPrice'> <b className='dollar'>$</b> {props.value} </p>
               </span>
           </div>    
       </div>
@@ -17,10 +17,10 @@ function Header(props) {
    } else {
     return(
       <div id='header' className='hidden'>
-          <div className="helloContainer">
-              <span id='headSpan' className=''>
+          <div className="headerContainer">
+              <span id='headerSpan' className=''>
                   <img id='userImg' className='icon' src={userIcon} alt=''/><h1 className="hello">Hello, {props.user}!</h1>
-              <p id='headPrice'> <b className='dollar'>$</b> {props.value} </p>
+              <p id='headerPrice'> <b className='dollar'>$</b> {props.value} </p>
               </span>
           </div>    
       </div>
