@@ -86,10 +86,18 @@ function Gallery(props) {
 const renderButton = () => {
   //if the sell button bool is true, render the button with an associated sell function 
     if (showSellButton === true) {
-      return <button className = 'endButton' id='sellBtn' onClick={handleSellClick}>Sell</button>;
+      return (
+      <span className='flexSpan'>
+        <button className='gallerySellUpButton' onClick={handleSellClick}>Sell</button>;
+      </span>
+      )
       //if the sell button bool is false, render the button with an associated upload function 
     } else {
-      return <button className = 'endButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
+      return (
+        <span className='flexSpan'>
+            <button className='gallerySellUpButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
+         </span>
+      )
     }
   }
 
@@ -97,24 +105,22 @@ const renderButton = () => {
 =                 RENDER                             =
 =====================================================*/
   return (
-    <div className="cameraPage">
-      {renderButton()}
-      <button className = 'backButton' id='backBtn' 
-        onClick={() => { props.setPageState('dashboard'); }}>
-        Cancel
-      </button>
-      <div className="welcomeContainer">
-        <h1 className="welcome">Upload something</h1>
-      </div>
-      <br/>
-      <img id='imgPreview' alt=''></img>
-      <br/>
+    <div className="gallery">
+      <span className='flexSpan'>
+        <h1 id="uploadText">Upload something</h1>
+      </span>
       <div id='mediaUploadContainer'>
         <form id="imageForm">
-        <input id="imageInput" type="file" className = 'browseButton' accept="image/*" 
-          onChange={onImageChange}/>
+         <input id="imageInput" type="file" className='browseButton' accept="image/*" onChange={onImageChange}/>
         </form>
       </div>
+      {renderButton()}
+      <span className='flexSpan'>
+        <button className='galleryCancelButton' onClick={() => { props.setPageState('dashboard'); }}>
+          Cancel
+        </button>
+      </span>
+      <img id='imgPreview' alt=''></img>
     </div>
   );
 }

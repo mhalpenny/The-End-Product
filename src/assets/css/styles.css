@@ -357,141 +357,105 @@ marquee{
 /*=============================================
 =                 ~CAMERA                     =
 =============================================*/
+.gallery{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+}
+
 #cameraContainer{
     width: 60%;
     top: 100px;
 }
 
-.cameraPage{
-    height: 0px;
-    overflow: hidden;
+#mediaUploadContainer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-#mediaUploadContainer{
-    width: 100%;
-    height: auto;
+#uploadText{
+    position: relative;
+    margin-top: 60%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    font-style: normal;
 }
 
 /*----------  Buttons  ----------*/
 
-.endButtonCam{
-    position: absolute;
-    margin-top: 500px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
+.galleryCancelButton{
+    position: relative;
     background-color: white;
-    width: 60%;
+    width: 40%;
+    margin-top: 20%;
+    /* margin-left: 35%; */
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
     font-family: Inter, sans-serif;
     font-weight: 300;
     font-size: 18px;
     text-align: center;
+    border: black solid 2px;
     box-shadow: 4px 4px white, 
     4px 4px 0px 2px black;
 }
 
 .browseButton{
-    position: absolute;
-    margin-top: 250px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
+    position: relative;
     background-color: white;
-    width: 70%;
+    width: 85%;
+    margin-top: 20%;
+    /* margin-left: 5%; */
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
-    margin-left: 5%;
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
+    border: black solid 2px;
     box-shadow: 4px 4px white, 
     4px 4px 0px 2px black;
 }
 
-.camButton{
-    position: absolute;
-    margin-top: 300px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
+.gallerySellUpButton{
+    position: relative;
     background-color: white;
-    width: 30%;
+    width: 60%;
+    margin-top: 20%;
+    /* margin-left: 20%; */
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10%;
     padding-right: 10%;
-    margin-left: 5%;
     font-family: Inter, sans-serif;
     font-weight: 300;
     font-size: 18px;
     text-align: center;
+    border: black solid 2px;
     box-shadow: 4px 4px white, 
     4px 4px 0px 2px black;
-}
-
-#camPhotoBtn{
-    left: 10px;
-}
-
-#camSnapBtn{
-    left: 120px;
-}
-
-#camSwitchBtn{
-    right: 10px;
-}
-
-.browseButtonCam{
-    position: absolute;
-    margin-top: 50px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 70%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: 5%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black;
-}
-
-.backButtonCam{
-    position: absolute;
-    bottom: 100px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-left: 10%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
 }
 
 /*----------  Input  ----------*/
+
+#imageForm{
+    position: relative;
+    margin-top: 0%;
+    max-width: 80%;
+}
 
 #imageInput{
     background: transparent;
@@ -502,7 +466,7 @@ marquee{
 input[type=file]::file-selector-button {
     font-family: Inter, sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     border: 0;
     padding: 12px;
     border-radius: .2em;
@@ -541,13 +505,6 @@ input[type=file]::file-selector-button {
     margin-left: 22%;
     margin-top: 200px;
 }
-
-canvas{
-    left: 0;
-    width: 500px;
-    top: 50px;
-}
-
 
 /*=============================================
 =                 ~VIDEO                      =
