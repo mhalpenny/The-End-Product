@@ -47,6 +47,9 @@ function Gallery(props) {
     })
       .then(response => response.json())
 
+      //set the text to prompt the user if they want to sell
+      document.querySelector('#uploadText').innerHTML = 'Please confirm your sale:';
+
       //when promise is returned, set the sell button display to true
       setShowSellButton(true);
       //save the returned the upload url for s3
@@ -59,6 +62,9 @@ function Gallery(props) {
   const handleSellClick = async () => {
     // console.log('sell');
     // console.log(uploadUrl);
+
+    //set the sell button to 'uploading...' while content uploads
+    document.querySelector('#gallerySellButton').innerHTML = 'Uploading...';
 
     //upload to file with the received s3 url
     await fetch(uploadUrl, {
@@ -96,14 +102,14 @@ const renderButton = () => {
     if (showSellButton === true) {
       return (
       <span className='flexSpan'>
-        <button className='gallerySellUpButton' onClick={handleSellClick}>Sell</button>;
+        <button className='gallerySellUpButton' id="gallerySellButton" onClick={handleSellClick}>Sell</button>;
       </span>
       )
       //if the sell button bool is false, render the button with an associated upload function 
     } else {
       return (
         <span className='flexSpan'>
-            <button className='gallerySellUpButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Upload</button>
+            <button className='gallerySellUpButton' id='uploadBtn' type="submit" onClick={handleUploadClick}>Submit</button>
          </span>
       )
     }
@@ -115,7 +121,7 @@ const renderButton = () => {
   return (
     <div className="gallery">
       <span className='flexSpan'>
-        <h1 id="uploadText">Upload something</h1>
+        <h1 id="uploadText">Upload or take an image:</h1>
       </span>
       <div id='mediaUploadContainer'>
         <form id="imageForm">

@@ -151,8 +151,8 @@ function Quiz(props) {
 		<div className='quiz'>
 			{showScore ? (
 				<div className='score-section sellContainer'>
-					<span className='centerMessage'>
-						<h1 id='sellText'>Thanks!</h1>
+					<span className='flexSpan'>
+						<h1 id='sellText'>Thanks! Confirm you sale:</h1>
 					</span>
 					<span className='flexSpan'>
 						<button className='endButton' id='quizSellButton' onClick={handleFinishButton}>
