@@ -9,10 +9,10 @@ function Login(props) {
   }
 
   return (
-    <div className="Login">
-      <div className="welcomeContainer">
+    <div className="login">
+      <span className="centerMessage">
         <h1 className="welcome" id='chooseUsername'>Choose your username</h1>
-      </div>
+      </span>
       <br/>
       <input type="text" id="userField" value={user} onChange={handleUserChange} required/>
       <br />
