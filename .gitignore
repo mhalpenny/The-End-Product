@@ -3,3 +3,4 @@ npm-debug.log
 /build/
 .env
 .DS_Store
+/photoshop/
