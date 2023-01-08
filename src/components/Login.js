@@ -8,23 +8,29 @@ function Login(props) {
     setUser(event.target.value);
   }
 
+  function handleUserClick() {
+    props.setUsername(user); 
+    props.setPageState('dashboard'); 
+    setButton('none', 'loginBtn'); 
+    props.setNewLogin(true); 
+    props.setValuePrice('0.00');
+  }
+
   return (
     <div className="login">
-      <span className="centerMessage">
-        <h1 className="welcome" id='chooseUsername'>Choose your username</h1>
+      <span className="flexSpan">
+        <h1 className="userMessage" id='chooseUsername'>Choose your username</h1>
       </span>
       <br/>
-      <input type="text" id="userField" value={user} onChange={handleUserChange} required/>
-      <br />
-      <button className = 'userButton' id='loginBtn' 
-        onClick={() => { 
-          props.setUsername(user); 
-          props.setPageState('dashboard'); 
-          setButton('none', 'loginBtn'); 
-          props.setNewLogin(true); 
-          props.setValuePrice('0.00');}}>
-        Start
-      </button>
+      <span className="flexSpan">
+        <input type="text" id="userField" value={user} onChange={handleUserChange} required/>
+      </span>
+      <br/>
+      <span className="flexSpan">
+        <button className='userButton' id='loginBtn' onClick= {handleUserClick}>
+          Start
+        </button>
+      </span>
     </div>
   );
   

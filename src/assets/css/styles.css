@@ -68,26 +68,6 @@ button:hover{ cursor: crosshair; }
     4px 4px 0px 2px black;
 }
 
-
-.userButton{
-    position: absolute;
-    margin-top: 600px;
-    border: solid black 2px;
-    background-color: white;
-    width: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-left: 50%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    /* box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black; */
-}
-
 .backButton{
     position: absolute;
     margin-top: 480px;
@@ -212,17 +192,9 @@ marquee{
     font-weight: 300;
     font-style: oblique;
 }
-
 /*=============================================
-=                 ~LOGIN                      =
+=                 ~HOME                       =
 =============================================*/
-.login{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-}
-
 .welcome{
     /* position: relative; */
     margin-top: 0%;
@@ -240,27 +212,6 @@ marquee{
     position: relative;
     width: 100%;
     margin-top: 60%;
-}
-
-#userField{
-    position: absolute;
-    margin-top: 385px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    width: 40%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: 20%;
-    font-family: Inter, sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    box-shadow: 4px 4px white, 
-    4px 4px 0px 2px black;
 }
 
 .homepageButton{
@@ -282,6 +233,65 @@ marquee{
     4px 4px 0px 2px black;
 }
 
+/*=============================================
+=                 ~LOGIN                      =
+=============================================*/
+.login{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.userMessage{
+    /* position: relative; */
+    margin-top: 70%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    font-style: normal;
+    display: flex;
+}
+
+#userField{
+    position: relative;
+    background-color: white;
+    width: 65%;
+    margin-top: 2%;
+    /* margin-left: 20%; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    border: solid black 2px;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
+
+.userButton{
+    position: relative;
+    background-color: white;
+    width: 40%;
+    margin-top: 20%;
+    /* margin-left: 50%; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: Inter, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    border: solid black 2px;
+    box-shadow: 4px 4px white, 
+    4px 4px 0px 2px black;
+}
 
 /*=============================================
 =                 ~DASHBOARD                  =
