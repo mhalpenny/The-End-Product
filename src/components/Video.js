@@ -20,11 +20,24 @@ function Video(props) {
 =                 UPLOAD CLICK                       =
 ====================================================*/
   const handleUploadClick = async () => {
-    //generate the correponding filename
-		const date = 'date-testing';
-    const keyName=`${date}/${props.user}/image-${Math.floor((Math.random() * 50))}-${props.value}.mp4`;
+    //generate a string for the server location & file name
+		//get the current date from the browser...
+    const date = new Date();
+
+    //extract the relevant data to be compiled into a string (YYYY-MM-DD)
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    //xompile date data into hyphenated string
+    const dateHypen = [year, month, day].join('-');
+    // console.log(withHyphens); 
+
+    const generatedNum = Math.floor((Math.random() * 50));
+
+    const keyName=`${dateHypen}/${props.user}/video-${generatedNum}-${props.cameraValue}.mp4`;
     // console.log('upload');
-    // console.log(keyName);
+    // console.log('keyname: ' + keyName);
 
     //request an upload url from s3 through node/heroku
     const { url } = await fetch(`https://the-end-product.herokuapp.com/api/s3Url?keyName=${keyName}`, {
