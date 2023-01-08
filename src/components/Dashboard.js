@@ -48,52 +48,68 @@ function Dashboard(props) {
     <div className="dashboard">
       <br /><br /><br /><br/>
       <div className="dashContainer" id='dashMedia'>
-        <p className='dashTitle'>Share or take an image:</p>
-        <button className="dashImgContainer" id='camImg'
-          onClick={() => {props.setPageState('gallery'); setButton('mediaBtn', 'none');}}>  
-        </button>
+        <span className='flexSpan'>
+          <p className='dashTitle'>Share or take an image</p>
+        </span>
+        <span className='flexSpan'>
+          <button className="dashImgContainer" id='camImg'
+            onClick={() => {props.setPageState('gallery'); setButton('mediaBtn', 'none');}}>  
+          </button>
+        </span>
         <div>
-          <span className='earnSpan'>
-          <p>You earn <b>$</b> {props.galleryValue}</p> 
+          <span className='flexSpan'>
+            <p className='earnText'>You'll earn <b>$</b>{props.galleryValue}</p> 
           </span>
         </div>
       </div>
       <br/>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p className='dashTitle'>Fill out an info sheet:</p>
-        <button className="dashImgContainer" id='infoImg' 
-        onClick={() => { props.setPageState('quizB');}}>
-        </button>
+        <span className='flexSpan'>
+          <p className='dashTitle'>Fill out an info sheet</p>
+        </span>
+        <span className='flexSpan'>
+          <button className="dashImgContainer" id='infoImg' 
+          onClick={() => { props.setPageState('quizB');}}>
+          </button>
+        </span>
         <div>
-          <span className='earnSpan'>
-            <p>You earn <b>$</b> {props.quizBValue}</p> 
+          <span className='flexSpan'>
+            <p className='earnText'>You'll earn <b>$</b>{props.quizBValue}</p> 
           </span>
         </div>
       </div>
       <br/>
       <br/>
       <div className="dashContainer" id='dashVideo'>
-        <p className='dashTitle'>Share a video:</p>
-        <button className="dashImgContainer" id='vidImg' 
-        onClick={() => { props.setPageState('video');}}>
-        </button>
+        <span className='flexSpan'>
+          <p className='dashTitle'>Share a video</p>
+        </span>
+        <span className='flexSpan'>
+          <button className="dashImgContainer" id='vidImg' 
+          onClick={() => { props.setPageState('video');}}>
+          </button>
+        </span>
         <div>
-          <span className='earnSpan'>
-          <p>You earn <b>$</b> {props.cameraValue}</p> 
+          <span className='flexSpan'>
+            <p className='earnText'>You'll earn <b>$</b>{props.cameraValue}</p> 
           </span>
         </div>
       </div>
       <br/>
       <br/>
       <div className="dashContainer" id='dashQuiz'>
-        <p className='dashTitle'>Take our quiz:</p>
-        <button className="dashImgContainer" id='quizImg' 
-        onClick={() => {props.setPageState('quiz');}}>
-        </button>
+        <span className='flexSpan'>
+          <p className='dashTitle'>Take our quiz</p>
+        </span>
+        <span className='flexSpan'>
+          <button className="dashImgContainer" id='quizImg' 
+          onClick={() => {props.setPageState('quiz');}}>
+          </button>
+        </span>
         <div>
-          <span className='earnSpan'>
-            <p>You earn <b>$</b> {props.quizValue}</p> 
+          <span className='flexSpan'>
+            <p className='earnText'>You'll earn <b>$</b>{props.quizValue}</p> 
           </span>
         </div>
       </div>
